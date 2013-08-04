@@ -1,0 +1,33 @@
+<% if @i == 0%>
+  <article id="article-<%= article.id %>">
+    <header>
+      <h2 class='page-header'><%= (controller.controller_name == 'redirect') ? article.title : link_to_permalink(article,article.title) %></h2>      
+    </header>
+    
+    <%= render 'articles/protected_article_content', { :article => article } %>
+
+    <footer class='meta'>
+      <p>
+        <small><%= _("Publié le") %>
+          <%= display_date(article.published_at) %> à <%= display_time(article.published_at) %>
+          <%= tag_links(article, "") unless article.tags.empty? %>
+        </small>          
+        </p>
+      </footer>
+  </article>
+<% @i = 1 %>
+<% else %>
+<div id="article-<%= article.id %>">
+  <h2 class='page-header'><%= link_to_permalink(article,article.title) %></h2>
+  <%= display_thumbnail(article) %>
+  <% s = article.body.strip_html.slice(0, 800).split(/\. /) 
+      s.pop
+      article.body = s.join(". ")
+      %>
+      <div class='excerpt'>
+        <%= article.html(:body) %>
+        <%= display_comments_counter(article) %>
+      </div>
+
+</div>
+<% end %>

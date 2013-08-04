@@ -1,0 +1,25 @@
+<div class='span8 offset2'>
+  <h1 class='page-header'><%= _("Archives") %></h1>
+  <% if @articles.to_a.empty? -%>
+  <div class="post">
+  <p><%= _("No articles found")%>...</p>
+  </div>
+  <% else
+       counter = 0
+       currentmonth = 0
+       currentyear = 0
+       for article in @articles
+         if (article.published_at.month != currentmonth || article.published_at.year != currentyear)
+           currentmonth = article.published_at.month
+           currentyear = article.published_at.year -%>
+            <%= content_tag(:hr) if counter != 0 %>
+            <% counter = 1 if counter == 0 %>
+            <h3><%= _(Date::MONTHNAMES[article.published_at.month]).capitalize %> <%= article.published_at.year %></h3>
+             <% end -%>
+             <p>
+               <%= article.published_at.mday %> -
+               <%= link_to_permalink(article,h(article.title)) %><%= tag_links(article, ", dans") unless article.tags.empty? %>
+             </p>
+  <% end 
+  end -%>
+</div>

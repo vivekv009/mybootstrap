@@ -1,0 +1,9 @@
+<% @i = 0 %>
+
+<div class='span8 offset2'>
+  <%= render @articles %>
+  <div class='paginate'>
+    <%= paginate(@articles)%>
+  </div>
+  
+</div>

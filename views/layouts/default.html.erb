@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <meta charset="utf-8" />
+  <title><%= h(page_title.html_safe) %></title>
+  <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.min.css", "/stylesheets/theme/mybootstrap.css", "/stylesheets/theme/responsive.css", :media => 'all' %>
+  <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/images/theme/favicon.png" />
+  <%= page_header %>
+</head>
+<body>
+  <div class='navbar navbar-inverse navbar-fixed-top'>
+    <div class='navbar-inner'>
+      <div class='container'>
+        <div class='span10 offset1'>
+          <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'brand') %>
+          <ul class='nav pull-right'>
+            <li class='hidden-phone'><%= link_to(_("Archives"), {:controller => 'articles', :action => 'archives'}) %></li>
+            <li class='hidden-phone'><%= link_to(_("À propos"), {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
+            <li class='hidden-phone'>      
+              <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-search">
+                <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="search-query span2" />
+              </form>
+            </li>
+            <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow"><img src="/images/theme/rss_icon.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"><span class="hidden-phone"> 3484</span></a></li>
+            <li><a href="https://twitter.com/fdevillamil" rel="me"><img src="/images/theme/twitter_icon.png" alt="Suivez-moi sur Twitter"><span class="hidden-phone"> 4190</span></a></li>
+            <li class='hidden-phone'><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" rel="nofollow"><img src="/images/theme/email.png"> 1142</a></li>
+        </ul>
+        </div>
+    </div>
+  </div>
+</div>
+<% if controller.action_name != 'redirect' %>
+<div id='overlay' class="hidden-phone">
+  <div id='innerlay'>
+    <header class='container'>
+      <div class='row'>
+        <aside id="about" class='span8 offset2'>
+          Bienvenue sur <span class='ux'>Le Rayon UX</span>, un blog publié par <a href="http://t37.net/pages/frederic-de-villamil-et-le-rayon-ux">Frédéric de Villamil</a>. On y parle de <%= link_to("startups", File.join(this_blog.base_url, "tag", "startup-life")) %>, d'<%= link_to("expérience utilisateur", File.join(this_blog.base_url, "tag", "ergonomie-web-logicielle")) %>, de <%= link_to("blogging", File.join(this_blog.base_url, "tag", "blogs-twitter-micro-blogging")) %>, de <%= link_to("développement Web", File.join(this_blog.base_url, "tag", "developpement")) %> et de <%= link_to("bien d'autres choses", File.join(this_blog.base_url, "categories.html")) %>
+        </aside>    
+      </div>
+    </header>
+  </div>  
+</div>
+<% end %>
+
+<div id="outside">
+	<div id='main'>
+     <div id='page' class='container'>
+       <div class='row'>
+         <%= yield %>
+       </div>
+     </div>
+   </div>
+   <footer class='footer'>
+  <small>
+    <a href="http://blog.akei.com/">Akei, conseil, formation et développement</a> - 
+    <a href="http://www.referencement-blog.net/">Référencement blog</a> - 
+    <a href="http://www.mar1e.fr/">Pink SEO</a> - 
+    <a href="http://www.ecribouille.net/" title="Syphaïwong Bay">Syphaïwong Bay</a> - 
+    <a href="https://plus.google.com/118260479267451543665?rel=author" class="_blank" title="Google +">Google+</a> –
+    <a href='http://www.flickr.com/photos/mrzeon/4636582951/'>Photo Daniel Dionne</a>
+</small>
+</footer>
+
+</div>
+</div>
+</body>
+<% if controller.controller_name == "articles" and controller.action_name.include? "redirect" %>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'fr'}
+</script>
+<div id="fb-root"></div>
+<script typ="text/javascript">(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=109682555788055";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<%end%>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-80448-11']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</html>

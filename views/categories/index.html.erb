@@ -1,0 +1,16 @@
+<div class='span8 offset2'>
+  <div class='category-excerpt'>
+    <h1 class='page-header'>Ici, on parle de</h1>
+    <% @categories.each do |cat| %>
+      <h2 class='page-header'><%= cat.display_name%></h2>
+      <p><%= cat.description %></p>
+      <% articles = cat.articles.slice(0, 9)%>
+      <ul>
+        <% articles.each do |article| %>
+          <li><%= link_to_permalink(article, article.title)%></li>
+        <% end %>
+      </ul>
+      <p class='well-mini'>Lire tous les articles parlant de <%= link_to_permalink(cat, cat.display_name) %>.</p>
+    <% end%>
+  </div>
+</div>

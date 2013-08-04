@@ -1,0 +1,278 @@
+@media (min-width: 1024px) {
+  body {
+    background: #E9E6E1;
+    padding-top: 39px;
+/*    background: url("/images/theme/new-york-skyline.jpg") top left no-repeat; */
+  }  
+}
+
+@media (max-width: 1024px) {
+  body {
+    background: #fff;
+    padding-top: 39px;
+  }  
+  
+  .navbar-inverse .brand {
+    background: none;
+    border: none;
+  }
+}
+
+/* Flatten das boostrap */
+.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+  border-collapse: collapse !important;
+  background-image: none !important;
+}
+
+header h1, p#title {
+  font-size: 41.25px;
+  line-height: 48px;
+  font-weight: bold;
+  margin-bottom: 0;
+  float: left;
+  font-weight: 400;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+	/*font-weight: 400; */
+}
+
+p#title {
+  margin-top: 12px;
+}
+
+p.subtitle {
+  font-weight: 300;
+  margin-bottom: 18px;
+  margin-left: 20px;
+  font-size: 14px;
+  line-height: 48px;
+  text-rendering: optimizelegibility;
+  float: left;
+  width: 50%;
+  text-align: left;
+  font-style: italic;
+}
+
+#logo {
+  margin-top: 20px;
+  padding-top: 328px;
+}
+
+#outside {
+  margin: auto;
+}
+
+#main {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+#page {
+  margin-bottom: 40px;
+}
+
+.navbar-inner {
+  border-radius: 0;
+}
+
+#sidebar {
+  margin-top: 24px;
+}
+
+#sidebar p {
+  font-size: 100%;
+  
+}
+
+img.thumb {
+  float: left;
+  margin: 0 5px 5px 0;
+}
+
+img.centered, img.alignleft, img.alignright, img.thumb {
+    background: #ddd;
+    border: 1px solid #DDDDDD;
+    line-height: 1;
+    padding: 4px;
+}
+
+.rss_widget {
+    padding: 0 25px 0 0;
+}
+
+.rss_widget, .twitter_widget {
+    float: left;
+    width: 120px;
+}
+
+span.icon {
+    float: left;
+    margin: 5px 10px 0 0;
+}
+
+.sidebar-title {
+  clear: both;
+  
+}
+
+#nav {
+  margin-bottom: 44px;
+  
+}
+
+.breadcrumb {
+  border: none;
+  background: none;
+  top: 0;
+  position: absolute;
+}
+
+#related {
+  margin-bottom: 24px;
+  
+}
+#related .span3 {
+  width: 160px;
+}
+
+.static-body {
+  margin-bottom: 24px;
+  
+}
+
+.well img.alignleft {
+  border: none;
+}
+
+.excerpt {
+  margin-left: 250px;
+}
+
+header div.meta {
+  margin-top: 29px;
+}
+
+header div.meta small {
+  font-size: 70%;
+  line-height: 60%;
+}
+
+header div.meta small span.bold {
+  font-weight: bold;
+  color: #333;
+}
+
+.metatop {
+  clear: both;
+  margin-bottom: 16px;
+}
+
+.navbar {
+  margin-bottom: 29px;
+}
+
+header {
+  clear: both;
+}
+
+ .navbar-inner .container {
+  width: 1100px;
+  margin:0 auto;
+  padding:0;
+}
+
+.navbar .nav > li > a {
+	color: #eee;
+	padding: 8px 10px;
+}
+
+.navbar .nav > li > form {
+	padding-left: 8px;
+  padding-right: 8px;
+}
+
+p small {
+    color: #999999;
+/*    font-size: 13px; */
+}
+
+.footer {
+  clear: both;
+  text-align: center;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+q:after { content: " »" }
+q:before { content: "« " }
+q { font-style: italic; }
+
+
+/* CodeRay */
+.CodeRay pre {
+  font-family: Consolas,"Courier New",monospace;
+  border: none;
+  padding: 0;
+  background-color: hsl(0,0%,95%);
+  color: black;
+  font-size: 13px;
+}
+
+table.CodeRay {
+  border: none;
+  font-size: 13px;
+  
+}
+
+.line-numbers pre {
+  background: none;
+  white-space: pre;
+}
+
+#about {
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 60px 10px 60px 10px;
+  line-height: 30px;
+}
+
+#about a {
+  font-weight: bold;
+}
+
+span.ux {
+  color: #fff;
+  background: #19C1C3;
+  padding: 2px 4px 2px 4px;
+}
+
+a.brand:hover {
+  background: #1E728C;
+}
+
+#overlay {
+  background: url("/images/theme/new-york-skyline.jpg") top left no-repeat;
+}
+
+#innerlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
