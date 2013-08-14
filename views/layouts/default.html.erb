@@ -16,15 +16,23 @@
           <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'brand') %>
           <ul class='nav pull-right'>
             <li class='hidden-phone'><%= link_to(_("Archives"), {:controller => 'articles', :action => 'archives'}) %></li>
+            <li class='divider-vertical'></li>
             <li class='hidden-phone'><%= link_to(_("À propos"), {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
-            <li class='hidden-phone'>      
+            <li class='divider-vertical'></li>
+            <li class='hidden-phone'>
               <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-search">
                 <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="search-query span2" />
               </form>
             </li>
-            <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow"><img src="/images/theme/rss_icon.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"><span class="hidden-phone"> 3484</span></a></li>
-            <li><a href="https://twitter.com/fdevillamil" rel="me"><img src="/images/theme/twitter_icon.png" alt="Suivez-moi sur Twitter"><span class="hidden-phone"> 4190</span></a></li>
-            <li class='hidden-phone'><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" rel="nofollow"><img src="/images/theme/email.png"> 1142</a></li>
+            <li><a href="https://github.com/fdv" rel="me"><img src="/images/theme/github_icon.png" alt="Github" /></a></li>
+            <li><a href="http://flickr.com/photos/fdevillamil" rel="me"><img src="/images/theme/flickr_icon.png" alt="Flickr" /></a></li>
+            <li><a href="https://plus.google.com/118260479267451543665?rel=author" rel="me"><img src="/images/theme/googleplus_icon.png" alt="Google+" /></a></li>
+            <li><a href="linkedin.com/in/fdevillamil" rel="me"><img src="/images/theme/linkedin_icon.png" alt="Linkedin" /></a></li>
+            <li><a href="http://www.facebook.com/RayonUx" rel="me"><img src="/images/theme/facebook_icon.png" alt="Facebook" /></a></li>
+            <li class='divider-vertical'></li>
+            <li><a href="https://twitter.com/fdevillamil" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/twitter_icon.png" alt="Suivez-moi sur Twitter"></a></li>
+            <li><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" title="Rejoignez gratuitement les 1142 abonnés par email" rel="nofollow"><img src="/images/theme/email_icon.png"></a></li>
+            <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow" title="Rejoignez gratuitement les 3484 abonnés par RSS"><img src="/images/theme/rss_icon.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"></a></li>
         </ul>
         </div>
     </div>
@@ -58,8 +66,6 @@
     <a href="http://www.referencement-blog.net/">Référencement blog</a> - 
     <a href="http://www.mar1e.fr/">Pink SEO</a> - 
     <a href="http://www.ecribouille.net/" title="Syphaïwong Bay">Syphaïwong Bay</a> - 
-    <a href="https://plus.google.com/118260479267451543665?rel=author" class="_blank" title="Google +">Google+</a> –
-    <a href='http://www.flickr.com/photos/mrzeon/4636582951/'>Photo Daniel Dionne</a>
 </small>
 </footer>
 

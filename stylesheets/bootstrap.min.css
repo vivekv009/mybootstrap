@@ -2787,7 +2787,7 @@ button.close {
 }
 .btn-mini [class^="icon-"],
 .btn-mini [class*=" icon-"] {
-  margin-top: -1px;
+  margin-top: 3px;
 }
 .btn-mini {
   padding: 0 6px;

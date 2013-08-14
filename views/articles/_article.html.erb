@@ -1,5 +1,5 @@
 <% if @i == 0%>
-  <article id="article-<%= article.id %>">
+  <article id="article-<%= article.id %>" class='h-entry hentry h-as-note'>
     <header>
       <h2 class='page-header'><%= (controller.controller_name == 'redirect') ? article.title : link_to_permalink(article,article.title) %></h2>      
     </header>
@@ -22,9 +22,9 @@
   </article>
 <% @i = 1 %>
 <% else %>
-<div id="article-<%= article.id %>">
+<div id="article-<%= article.id %>" class='h-entry hentry h-as-note'>
   <h2 class='page-header'><%= link_to_permalink(article,article.title) %></h2>
-  <% s = article.body.strip_html.slice(0, 800).split(/\. /) 
+  <% s = article.body.strip_html.slice(0, 800).split(/\. /)
       s.pop
       article.body = s.join(". ")
       %>
