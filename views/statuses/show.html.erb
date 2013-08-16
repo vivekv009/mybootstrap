@@ -1,6 +1,10 @@
 <div class="hfeed span8 offset2">
-  <div class='h-entry hentry h-as-note'>
-    <article>
+  <div class='h-entry hentry h-as-note well well-small'>
+    <% if @reply %>
+      <%= render :partial => "status_reply_context", :object => @reply %>
+    <% end %>
+    
+    <article class='status'>
       <%= author_picture @status %>
       <p class='p-name entry-title e-content entry-content article'><%= @status.html(:body) %></p>
       <footer>
