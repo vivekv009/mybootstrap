@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <meta charset="utf-8" />
-  <title><%= h(page_title.html_safe) %></title>
+  <title><%= h(page_title.html_safe) if page_title %></title>
   <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.min.css", "/stylesheets/theme/mybootstrap.css", "/stylesheets/theme/responsive.css", :media => 'all' %>
   <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
