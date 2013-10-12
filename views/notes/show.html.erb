@@ -1,22 +1,33 @@
-<div class="hfeed span8 offset2">
-  <div class='h-entry hentry h-as-note well well-small'>
-    <% if @reply %>
-      <%= render :partial => "status_reply_context", :object => @reply %>
-    <% end %>
-    
-    <article class='status'>
-       <a href="http://t37.net" class="p-author h-card author-icon">
-         <%= author_picture @note %>
-       </a>
-      <div class='p-name entry-title e-content entry-content article'><%= @note.html(:body) %></div>
-      <footer>
-        <small>
-          <%= link_to_permalink(@note, display_date_and_time(@note.published_at)) %> | 
-          <%= link_to File.join(this_blog.base_url, @note.redirects.first.from_path), File.join(this_blog.base_url, @note.redirects.first.from_path) %> | 
-          <%= author_link @note %>
-          <%= view_on_twitter @note %>
+<div class="hfeed">
+  <header class='span2 offset1'>
+    <div class='meta'>
+      <p class='text-right'>
+        <a href="http://t37.net" class="p-author h-card author-icon">
+          <img src='/images/theme/frederic-de-villamil-circle.jpg' alt="Frédéric de Villamil" /><br /> 
+        </a>
+        <small><span class='bold'><%= @note.user.nickname %></span><br />
+          <time>le <%= display_date(@note.published_at) %></time>
         </small>
-      </footer>
-    </article>
+      </p>
+    </div>
+  </header>  
+  
+  <div class='span8'>
+    <div class='h-entry hentry h-as-note well well-small'>
+      <% if @reply %>
+        <%= render :partial => "status_reply_context", :object => @reply %>
+      <% end %>
+    
+      <article class='status'>
+        <div class='p-name entry-title e-content entry-content article'><%= @note.html(:body) %></div>
+        <footer>
+          <small>
+            <%= link_to_permalink(@note, display_date_and_time(@note.published_at)) %>
+            <%= view_on_twitter @note %>
+          </small>
+        </footer>
+      </article>
+    </div>
+    
   </div>
 </div>
