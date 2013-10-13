@@ -35,7 +35,7 @@
     </div>
   </div>
 </div>
-<% unless 1 || ['redirect', 'show'].include?(controller.action_name) %>
+<% unless ['redirect', 'show'].include?(controller.action_name) %>
 <div id='overlay' class="hidden-phone">
   <div id='innerlay'>
     <header class='container'>
