@@ -35,12 +35,12 @@
     </div>
   </div>
 </div>
-<% if controller.action_name != 'redirect' %>
+<% unless 1 || ['redirect', 'show'].include?(controller.action_name) %>
 <div id='overlay' class="hidden-phone">
   <div id='innerlay'>
     <header class='container'>
       <div class='row'>
-        <aside id="about" class='span8 offset2'>
+        <aside id="about" class='span9 offset2'>
           Bienvenue sur <span class='ux'>Le Rayon UX</span>, un blog publié par <a href="http://t37.net/pages/frederic-de-villamil-et-le-rayon-ux">Frédéric de Villamil</a>. On y parle de <%= link_to("startups", File.join(this_blog.base_url, "tag", "startup-life")) %>, d'<%= link_to("expérience utilisateur", File.join(this_blog.base_url, "tag", "ergonomie-web-logicielle")) %>, de <%= link_to("blogging", File.join(this_blog.base_url, "tag", "blogs-twitter-micro-blogging")) %>, de <%= link_to("développement Web", File.join(this_blog.base_url, "tag", "developpement")) %> et de <%= link_to("bien d'autres choses", File.join(this_blog.base_url, "categories.html")) %>
         </aside>    
       </div>
