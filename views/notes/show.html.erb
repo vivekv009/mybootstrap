@@ -11,10 +11,10 @@
       </p>
       <hr />
       <p class='text-right'>
-        <a href="https://twitter.com/share?url=<%= URI.encode(@note.permalink_url) %>&amp;text=<%= URI.escape(note_title(@note.html(:body))) %>&amp;via=fdevillamil"><img src="/images/theme/twitter_icon_bw.png" alt="Partagez sur Twitter"></a>
-        <a href="https://www.facebook.com/sharer.php?u=<%= URI.encode(@note.permalink_url) %>&amp;t=<%= URI.escape(note_title(@note.html(:body))) %>"><img src="/images/theme/facebook_icon_bw.png" alt="Partagez sur Facebook"></a>
-        <a href="https://plus.google.com/share?url=<%= URI.encode(@note.permalink_url) %>&amp;hl=fr"><img src="/images/theme/googleplus_icon_bw.png" alt="Partagez sur Google Plus"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= URI.encode(@note.permalink_url) %>&amp;title=<%= URI.escape(note_title(@note.html(:body))) %>"><img src="/images/theme/linkedin_icon_bw.png" alt="Partagez sur Linkedin Plus"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" href="https://twitter.com/share?url=<%= URI.encode(@note.permalink_url) %>&amp;text=<%= URI.escape(note_title(@note.html(:body))) %>&amp;via=fdevillamil"><img src="/images/theme/twitter_icon_bw.png" alt="Partagez sur Twitter"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=<%= URI.encode(@note.permalink_url) %>&amp;t=<%= URI.escape(note_title(@note.html(:body))) %>"><img src="/images/theme/facebook_icon_bw.png" alt="Partagez sur Facebook"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://plus.google.com/share?url=<%= URI.encode(@note.permalink_url) %>&amp;hl=fr"><img src="/images/theme/googleplus_icon_bw.png" alt="Partagez sur Google Plus"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= URI.encode(@note.permalink_url) %>&amp;title=<%= URI.escape(note_title(@note.html(:body))) %>"><img src="/images/theme/linkedin_icon_bw.png" alt="Partagez sur Linkedin Plus"></a>
       </p>
 
     </div>
