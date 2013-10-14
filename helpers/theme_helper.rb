@@ -102,3 +102,7 @@ def display_thumbnail(article)
   end
   return image_tag(File.join(this_blog.base_url, "images", "theme", "placeholder.jpg"), :alt => h(article.title), :class => 'thumb')
 end
+
+def note_title(content)
+  content.strip_html.slice(0..113)
+end

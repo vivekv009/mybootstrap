@@ -15,9 +15,6 @@
           </small>          
           </p>
       </div>
-      <div class='span2'>
-      <p class='pull-right'><%= display_comments_counter(article)%></p>
-      </div>
    </footer>
   </article>
 <% @i = 1 %>
@@ -37,9 +34,6 @@
                 <%= tag_links(article, "dans") unless article.tags.empty? %>
               </small>          
               </p>
-          </div>
-          <div class='span2'>
-          <p class='pull-right'><%= display_comments_counter(article)%></p>
           </div>
        </footer>
 </div>
