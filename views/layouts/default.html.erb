@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.min.css", "/stylesheets/theme/mybootstrap.css", "/stylesheets/theme/responsive.css", "user-styles.css", :media => 'all' %>
   <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="author" href="https://plus.google.com/118260479267451543665" />
   <link rel="icon" type="image/png" href="/images/theme/favicon.png" />
   <%= page_header_includes %>
 </head>
@@ -37,6 +38,7 @@
 </div>
 <% unless ['redirect', 'show'].include?(controller.action_name) %>
 <div id='overlay' class="hidden-phone">
+  <!--
   <div id='innerlay'>
     <header class='container'>
       <div class='row'>
@@ -45,7 +47,7 @@
         </aside>    
       </div>
     </header>
-  </div>  
+  </div>   -->
 </div>
 <% end %>
 
