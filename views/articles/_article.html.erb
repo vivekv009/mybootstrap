@@ -3,7 +3,7 @@
     <header>
       <h2 class='page-header'><%= (controller.controller_name == 'redirect') ? article.title : link_to_permalink(article,article.title) %></h2>      
     </header>
-    
+  
     <%= render 'articles/protected_article_content', { :article => article } %>
 
     <footer class='meta row hidden-phone'>
@@ -15,20 +15,17 @@
           </small>          
           </p>
       </div>
-      <div class='span2'>
-      <p class='pull-right'><%= display_comments_counter(article)%></p>
-      </div>
    </footer>
   </article>
 <% @i = 1 %>
 <% else %>
 <div id="article-<%= article.id %>" class='h-entry hentry h-as-note'>
-  <h2 class='page-header'><%= link_to_permalink(article,article.title) %></h2>
+  <h3><%= link_to_permalink(article,article.title) %></h3>
   <% s = article.body.strip_html.slice(0, 800).split(/\. /)
       s.pop
       article.body = s.join(". ")
       %>
-        <%= article.html(:body) %>
+        <%= article.html(:body).strip_html %>
         <footer class='meta row hidden-phone'>
           <div class='span6'>
             <p>
@@ -38,9 +35,7 @@
               </small>          
               </p>
           </div>
-          <div class='span2'>
-          <p class='pull-right'><%= display_comments_counter(article)%></p>
-          </div>
        </footer>
 </div>
 <% end %>
+<hr />

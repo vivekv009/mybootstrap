@@ -1,22 +1,41 @@
-<div class="hfeed span8 offset2">
-  <div class='h-entry hentry h-as-note well well-small'>
-    <% if @reply %>
-      <%= render :partial => "status_reply_context", :object => @reply %>
-    <% end %>
-    
-    <article class='status'>
-       <a href="http://t37.net" class="p-author h-card author-icon">
-         <%= author_picture @note %>
-       </a>
-      <div class='p-name entry-title e-content entry-content article'><%= @note.html(:body) %></div>
-      <footer>
-        <small>
-          <%= link_to_permalink(@note, display_date_and_time(@note.published_at)) %> | 
-          <%= link_to File.join(this_blog.base_url, @note.redirects.first.from_path), File.join(this_blog.base_url, @note.redirects.first.from_path) %> | 
-          <%= author_link @note %>
-          <%= view_on_twitter @note %>
+<div class="hfeed">
+  <header class='span2 offset1'>
+    <div class='meta'>
+      <p class='text-right'>
+        <a href="http://t37.net" class="p-author h-card author-icon">
+          <img src='/images/theme/frederic-de-villamil-circle.jpg' alt="Frédéric de Villamil" /><br /> 
+        </a>
+        <small><span class='bold'><%= @note.user.nickname %></span><br />
+          <time>le <%= display_date(@note.published_at) %></time>
         </small>
-      </footer>
-    </article>
+      </p>
+      <hr />
+      <p class='text-right'>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" href="https://twitter.com/share?url=<%= URI.encode(@note.permalink_url) %>&amp;text=<%= URI.escape(note_title(@note.html(:body))) %>&amp;via=fdevillamil"><img src="/images/theme/twitter_icon_bw.png" alt="Partagez sur Twitter"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=<%= URI.encode(@note.permalink_url) %>&amp;t=<%= URI.escape(note_title(@note.html(:body))) %>"><img src="/images/theme/facebook_icon_bw.png" alt="Partagez sur Facebook"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://plus.google.com/share?url=<%= URI.encode(@note.permalink_url) %>&amp;hl=fr"><img src="/images/theme/googleplus_icon_bw.png" alt="Partagez sur Google Plus"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= URI.encode(@note.permalink_url) %>&amp;title=<%= URI.escape(note_title(@note.html(:body))) %>"><img src="/images/theme/linkedin_icon_bw.png" alt="Partagez sur Linkedin Plus"></a>
+      </p>
+
+    </div>
+  </header>  
+  
+  <div class='span8' style='margin-top: 29px'>
+    <div class='h-entry hentry h-as-note'>
+      <% if @reply %>
+        <%= render :partial => "status_reply_context", :object => @reply %>
+      <% end %>
+    
+      <article class='status'>
+        <div class='p-name entry-title e-content entry-content article'><%= @note.html(:body) %></div>
+        <footer>
+          <small>
+            <%= link_to_permalink(@note, display_date_and_time(@note.published_at)) %>
+            <%= view_on_twitter @note %>
+          </small>
+        </footer>
+      </article>
+    </div>
+    
   </div>
 </div>

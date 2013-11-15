@@ -251,7 +251,7 @@ table.CodeRay {
   color: #fff;
   font-size: 1.2em;
   line-height: 1.2em;
-  padding: 60px 10px 60px 10px;
+  padding: 60px 10px 60px 0;
   line-height: 30px;
 }
 
@@ -270,7 +270,8 @@ a.brand:hover {
 }
 
 #overlay {
-  background: url("/images/theme/new-york-skyline.jpg") top left no-repeat;
+  background: url("/images/theme/bg_london1.jpg") top left no-repeat;
+  padding-top: 672px;
 }
 
 #innerlay {

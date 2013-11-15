@@ -13,51 +13,28 @@
           <%= tag_links(@article, "<span class='bold'>Dans</span><br />") unless @article.tags.empty? %>
         </small>
       </p>
+      <hr />
+      <p class='text-right'>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" href="https://twitter.com/share?url=<%= URI.encode(@article.permalink_url) %>&amp;text=<%= URI.escape(@article.title) %>&amp;via=fdevillamil"><img src="/images/theme/twitter_icon_bw.png" alt="Partagez sur Twitter"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=<%= URI.encode(@article.permalink_url) %>&amp;t=<%= URI.escape(@article.title) %>"><img src="/images/theme/facebook_icon_bw.png" alt="Partagez sur Facebook"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://plus.google.com/share?url=<%= URI.encode(@article.permalink_url) %>&amp;hl=fr"><img src="/images/theme/googleplus_icon_bw.png" alt="Partagez sur Google Plus"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= URI.encode(@article.permalink_url) %>&amp;title=<%= URI.escape(@article.title) %>"><img src="/images/theme/linkedin_icon_bw.png" alt="Partagez sur Linkedin Plus"></a>
+      </p>
     </div>
   </header>  
 
   <div class='span8'>
     <h1 class='page-header p-name'><%= link_to_permalink(@article,@article.title) %></h1>
-    <aside class='meta metatop row'>
-      <a href="http://twitter.com/share" class="twitter-share-button span2" data-via="fdevillamil" data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      <iframe src='http://www.facebook.com/plugins/like.php?href=<%= @article.permalink_url %>&amp;layout=button_count&amp;show-faces=false&amp;width=400&amp;action=like&amp;font=arial&amp;colorscheme=light' scrolling='no' frameborder='0' allowTransparency='true' style='border:none; overflow:hidden; width:125px; height:20px;' class='span2'></iframe>
-      <a href="http://bufferapp.com/add" class="buffer-add-button span2" data-count="horizontal" data-via="fdevillamil">Buffer</a><script type="text/javascript" src="http://static.bufferapp.com/js/button.js"></script>
-      <script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
-      <g:plusone size="medium"></g:plusone>
-      <script type="IN/Share" data-counter="right"></script>
-    </aside>
 
     <%= @article.html(:body) %>
     <%= @article.html(:extended) %>
 
     <footer>
-      <aside class='meta metatop row'>
-        <a href="http://twitter.com/share" class="twitter-share-button span2" data-via="fdevillamil" data-count="horizontal" data-lang="fr">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-        <iframe src='http://www.facebook.com/plugins/like.php?href=<%= @article.permalink_url %>&amp;layout=button_count&amp;show-faces=false&amp;width=400&amp;action=like&amp;font=arial&amp;colorscheme=light' scrolling='no' frameborder='0' allowTransparency='true' style='border:none; overflow:hidden; width:125px; height:20px;' class='span2'></iframe>
-        <a href="http://bufferapp.com/add" class="buffer-add-button span2" data-count="horizontal" data-via="fdevillamil">Buffer</a><script type="text/javascript" src="http://static.bufferapp.com/js/button.js"></script>
-        <script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
-        <g:plusone size="medium"></g:plusone>
-        <script type="IN/Share" data-counter="right"></script>
-      </aside>
-
       <div class='well'>
-        <img src='http://t37.net/images/theme/frederic-de-villamil-square.jpg' alt="Frédéric de Villamil" class='alignleft' />
+        <img src='/images/theme/frederic-de-villamil-square.jpg' alt="Frédéric de Villamil" class='alignleft' /> 
         Une information, une correction ou un complément à ajouter en privé ? Envoyez moi un petit mail à <a href='mailto:frederic@t37.net'>frederic@t37.net</a>. N'hésitez pas aussi à faire un tour sur <a href='http://twitter.com/fdevillamil' rel='external nofollow'>Twitter</a>, <a href="https://plus.google.com/118260479267451543665/posts" rel="external nofollow">Google+</a> ou encore <a href='http://www.facebook.com/RayonUx' rel='external nofollow'>Facebook</a> pour d'autres news.
       </div>
 
       <%= render_similar_posts @article %>  
     </footer>
 </article>
-
-<% if @article.allow_comments? or @article.published_comments.size > 0 -%>
-<div class='span8 offset3'>
-  <h3 class="feedback" id="commentaires">
-    <%= display_comments_counter(@article) %>
-    <a href="#commentform" ref="nofollow"> &raquo;</a>
-  </h3>
-  <%= render "articles/comment_list" %>
-  <% end -%>
-
-  <%= render 'articles/comment_form' if @article.allow_comments? %>    
-</div>
-

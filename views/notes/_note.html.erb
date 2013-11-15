@@ -1,0 +1,14 @@
+<div class='h-entry hentry h-as-note'>
+  <article class='status'>
+    <p class='p-name entry-title e-content entry-content article'><%= note.html(:body).strip_html %></p>
+    <footer>
+      <small>
+        <%= link_to_permalink(note, "Le #{display_date(note.published_at)} à #{display_time(note.published_at)}") %> |
+        par <a href="http://t37.net" class="p-author h-card"><%= note.user.nickname %></a>
+        <%= view_on_twitter note %>
+      </small>
+    </footer>
+  </article>
+</div>
+<hr />
+<% @i = 1 %>
