@@ -72,11 +72,12 @@ def render_similar_posts(article)
     tablo = mylist.sort_by {rand}[0,4]
     i = 0
     html = "<div id='related' class='row'>"
-    html << "<h3 class='span9'>À lire également</h3>"
-    html << "<p class='span9'>Si <em>#{article.title}</em> vous a intéressé, vous pouvez poursuivre votre lecture avec ces billets similaires :</p>"
-
+    html << "<h3>À lire également</h3>"
+    html << "<p>Si <em>#{article.title}</em> vous a intéressé, vous pouvez poursuivre votre lecture avec ces billets similaires :</p>"
+    html << "</div>"
+    html << '<div class="row">'
     tablo.each do |article|
-        html << "<div class='span3'>"
+    html << "<div class='col-lg-3'>"
       thumb = display_thumbnail(article)
       html << link_to_permalink(article, thumb)
       html << "<small>#{link_to article.title, article.permalink_url}</small>"

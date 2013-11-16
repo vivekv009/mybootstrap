@@ -1,5 +1,5 @@
 <article id="article-<%= @article.id %>" class="h-entry">
-  <header class='span2 offset1'>
+  <header class='col-lg-2 col-lg-offset-1'>
     <div class='meta'>
       <p class='text-right'>
         <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' style='margin-top: 10px' /><br />
@@ -23,7 +23,7 @@
     </div>
   </header>  
 
-  <div class='span8'>
+  <div class='col-lg-7'>
     <h1 class='page-header p-name'><%= link_to_permalink(@article,@article.title) %></h1>
 
     <%= @article.html(:body) %>

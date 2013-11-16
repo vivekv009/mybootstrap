@@ -1,21 +1,17 @@
 <div id="article-<%= article.id %>">
-  <h2 class='page-header'><%= link_to_permalink(article,article.title) %></h2>
-  <% s = article.body.strip_html.slice(0, 800).split(/\. /) 
-      s.pop
-      article.body = s.join(". ")
+  <h2><%= link_to_permalink(article,article.title) %></h2>
+  <% s = truncate(article.html(:body).strip_html, length: 400, separator: ' ') 
+      article.body = s
       %>
         <%= article.html(:body) %>
    <footer class='meta row'>
-     <div class='span6'>
+     <div class='col-lg-12'>
        <p>
          <small><%= _("Publié le") %>
            <%= display_date(article.published_at) %> à <%= display_time(article.published_at) %>
            <%= tag_links(article, "dans") unless article.tags.empty? %>
          </small>          
          </p>
-     </div>
-     <div class='span2'>
-     <p class='pull-right'><%= display_comments_counter(article)%></p>
      </div>
   </footer>
 </div>

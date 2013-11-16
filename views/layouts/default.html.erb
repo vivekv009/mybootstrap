@@ -2,7 +2,7 @@
 <html lang="fr">
   <meta charset="utf-8" />
   <title><%= h(page_title.html_safe) if page_title %></title>
-  <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.min.css", "/stylesheets/theme/mybootstrap.css", "/stylesheets/theme/responsive.css", "user-styles.css", :media => 'all' %>
+  <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.css", "/stylesheets/theme/mybootstrap.css", "user-styles.css", :media => 'all' %>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <%= meta_tag 'description', @description unless @description.blank? %>
   <%= meta_tag 'robots', 'noindex, follow' if stop_index_robots? %>
@@ -27,62 +27,57 @@
   <link rel="icon" type="image/png" href="/images/theme/favicon.png" />
 </head>
 <body>
-  <div class='navbar navbar-inverse navbar-fixed-top'>
-    <div class='navbar-inner'>
-      <div class='container'>
-        <div class='span10 offset1'>
-          <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'brand') %>
-          <ul class='nav pull-right'>
-            <li class='hidden-phone'><%= link_to(_("Archives"), {:controller => 'articles', :action => 'archives'}) %></li>
-            <li class='divider-vertical'></li>
-            <li class='hidden-phone'><%= link_to(_("À propos"), {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
-            <li class='divider-vertical'></li>
-            <li class='hidden-phone'>
-              <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-search">
-                <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="search-query span2" />
-              </form>
-            </li>
-            <li><a href="https://github.com/fdv" rel="me"><img src="/images/theme/github_icon.png" alt="Github" /></a></li>
-            <li><a href="http://linkedin.com/in/fdevillamil" rel="me"><img src="/images/theme/linkedin_icon.png" alt="Linkedin" /></a></li>
-            <li class='divider-vertical'></li>
-            <li><a href="https://twitter.com/fdevillamil" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/twitter_icon.png" alt="Suivez-moi sur Twitter"></a></li>
-            <li><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" title="Rejoignez gratuitement les 1142 abonnés par email" rel="nofollow"><img src="/images/theme/email_icon.png"></a></li>
-            <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow" title="Rejoignez gratuitement les 3484 abonnés par RSS"><img src="/images/theme/rss_icon.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"></a></li>
-        </ul>
-        </div>
-    </div>
-  </div>
-</div>
-<% unless ['redirect', 'show'].include?(controller.action_name) %>
-<div id='overlay' class="hidden-phone">
-  <!--
-  <div id='innerlay'>
-    <header class='container'>
+  <nav class='navbar navbar-default' role='navigation'>
+    <div class='container'>
       <div class='row'>
-        <aside id="about" class='span9 offset2'>
-          Bienvenue sur <span class='ux'>Le Rayon UX</span>, un blog publié par <a href="http://t37.net/pages/frederic-de-villamil-et-le-rayon-ux">Frédéric de Villamil</a>. On y parle de <%= link_to("startups", File.join(this_blog.base_url, "tag", "startup-life")) %>, d'<%= link_to("expérience utilisateur", File.join(this_blog.base_url, "tag", "ergonomie-web-logicielle")) %>, de <%= link_to("blogging", File.join(this_blog.base_url, "tag", "blogs-twitter-micro-blogging")) %>, de <%= link_to("développement Web", File.join(this_blog.base_url, "tag", "developpement")) %> et de <%= link_to("bien d'autres choses", File.join(this_blog.base_url, "categories.html")) %>
-        </aside>    
+        <div class='col-lg-12'>
+          <div class="navbar-header">
+            <% if controller.controller_name == 'articles' && controller.action_name == 'index'%>
+              <h1><%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %></h1>          
+              <% else %>
+              <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
+              <%end%>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class='nav navbar-nav pull-right'>
+                <li class='hidden-phone'><%= link_to(_("Archives"), {:controller => 'articles', :action => 'archives'}) %></li>
+                <li class='divider-vertical'></li>
+                <li class='hidden-phone'><%= link_to(_("À propos"), {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
+                <li class='divider-vertical'></li>
+                <li class='hidden-phone'>
+                  <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                      <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="form-control" />
+                    </div>
+                  </form>
+                </li>
+                <li><a href="https://github.com/fdv" rel="me"><img src="/images/theme/icon_github.png" alt="Github" /></a></li>
+                <li><a href="http://linkedin.com/in/fdevillamil" rel="me"><img src="/images/theme/icon_linkedin.png" alt="Linkedin" /></a></li>
+                <li class='divider-vertical'></li>
+                <li><a href="https://twitter.com/fdevillamil" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/icon_twitter.png" alt="Suivez-moi sur Twitter"></a></li>
+                <li><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" title="Rejoignez gratuitement les 1142 abonnés par email" rel="nofollow"><img src="/images/theme/icon_email.png"></a></li>
+                <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow" title="Rejoignez gratuitement les 3484 abonnés par RSS"><img src="/images/theme/icon_rss.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"></a></li>
+            </ul>
+          </div>
+            </div>
+        </div>
       </div>
-    </header>
-  </div>   -->
-</div>
-<% end %>
-
-<div id="outside">
-	<div id='main'>
-     <div id='page' class='container'>
-       <div class='row'>
-         <%= yield %>
-       </div>
-     </div>
+        
+      </div>
+      
+    </div>
+</nav>
+<div id='page' class='container'>
+   <div class='row'>
+     <%= yield %>
    </div>
+ </div>
    <footer class='footer'>
   <small>
     <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>CC 3.0 BY-NC-SA</a> – Frédéric de Villamil <em>since 1978</em>
   </small>
 </footer>
 
-</div>
 </div>
 </body>
 <script type="text/javascript">

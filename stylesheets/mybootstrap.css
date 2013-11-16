@@ -1,24 +1,9 @@
-@media (min-width: 1024px) {
-  body {
-    background: #E9E6E1;
-    padding-top: 39px;
-/*    background: url("/images/theme/new-york-skyline.jpg") top left no-repeat; */
-  }  
-}
-
-@media (max-width: 1024px) {
-  body {
+body {
     background: #fff;
-    padding-top: 39px;
-  }  
-  
-  .navbar-inverse .brand {
-    background: none;
-    border: none;
-  }
 }
 
 /* Flatten das boostrap */
+/*
 .well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
@@ -28,7 +13,7 @@
   border-radius: 0px !important;
   border-collapse: collapse !important;
   background-image: none !important;
-}
+} */
 
 header h1, p#title {
   font-size: 41.25px;
@@ -80,10 +65,12 @@ p.subtitle {
   margin-right: auto;
 }
 
+/*
 .container {
   margin-left: auto;
   margin-right: auto; 
 }
+*/
 
 #page {
   margin-bottom: 40px;
@@ -166,10 +153,6 @@ span.icon {
   margin-left: 250px;
 }
 
-header div.meta {
-  margin-top: 29px;
-}
-
 header div.meta small {
   font-size: 70%;
   line-height: 60%;
@@ -193,14 +176,15 @@ header {
   clear: both;
 }
 
+/*
  .navbar-inner .container {
   width: 1100px;
   margin:0 auto;
   padding:0;
 }
+*/
 
 .navbar .nav > li > a {
-	color: #eee;
 	padding: 8px 4px;
 }
 
@@ -280,4 +264,34 @@ a.brand:hover {
 
 div.CodeRay {
   padding: 4px 8px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+article header img,
+#related img {
+  display: inline;
+}
+
+article p a {
+  text-decoration: underline;
+  
+}
+
+.well a {
+  text-decoration: underline;
+  
+}
+
+article header a {
+  text-decoration: none;
+}
+
+.navbar-header h1 {
+  margin:0;
+  pading: 0;
 }

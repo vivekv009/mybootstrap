@@ -1,4 +1,5 @@
-<div class='span8 offset2'>
+<div class='col-lg-8 col-lg-offset-2'>
+  <h1 class='page-header'>Articles publiés dans : <%= @grouping.name %></h1>
   <%= render :partial => 'article', :collection => @articles %>
   <div id='paginate'>
   <%= paginate @articles, { :previous_label => _('Previous'), :next_label => _('Next')  } %>
