@@ -1,41 +1,60 @@
 <% if @i == 0%>
-  <article id="article-<%= article.id %>" class='h-entry hentry h-as-note'>
-    <header>
-      <h2 class='page-header'><%= (controller.controller_name == 'redirect') ? article.title : link_to_permalink(article,article.title) %></h2>      
-    </header>
+<article id="article-<%= article.id %>" class='h-entry hentry h-as-note row' style='margin-top: 29px'>
+  <header class='col-lg-2 col-lg-offset-1'>
+    <div class='meta'>
+      <p class='text-right'>
+        <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' style='margin-top: 10px' /><br />
+        <small><span class='bold'><%= article.user.nickname %></span><br />
+          <time>le <%= display_date(article.published_at) %></time>
+        </small>
+      </p>
+      <hr />
+      <p class='text-right'>
+        <small>
+          <%= tag_links(article, "<span class='bold'>Dans</span><br />") unless article.tags.empty? %>
+        </small>
+      </p>
+      <hr />
+      <p class='text-right'>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" href="https://twitter.com/share?url=<%= URI.encode(article.permalink_url) %>&amp;text=<%= URI.escape(article.title) %>&amp;via=fdevillamil"><img src="/images/theme/twitter_icon_bw.png" alt="Partagez sur Twitter"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=<%= URI.encode(article.permalink_url) %>&amp;t=<%= URI.escape(article.title) %>"><img src="/images/theme/facebook_icon_bw.png" alt="Partagez sur Facebook"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://plus.google.com/share?url=<%= URI.encode(article.permalink_url) %>&amp;hl=fr"><img src="/images/theme/googleplus_icon_bw.png" alt="Partagez sur Google Plus"></a>
+        <a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<%= URI.encode(article.permalink_url) %>&amp;title=<%= URI.escape(article.title) %>"><img src="/images/theme/linkedin_icon_bw.png" alt="Partagez sur Linkedin Plus"></a>
+      </p>
+    </div>
+  </header>
   
-    <%= render 'articles/protected_article_content', { :article => article } %>
+  <section class='col-lg-7'>
+    <h2 class='page-header p-name'><%= link_to_permalink(article,article.title) %></h2>
+    <%= article.html(:body) %>
+    <%= article.html(:extended) %>    
+  </section>
+  <hr class='col-lg-9 col-lg-offset-1' />
+</article>
 
-    <footer class='meta row hidden-phone'>
-      <div class='span6'>
-        <p>
-          <small><%= _("Publié le") %>
-            <%= display_date(article.published_at) %> à <%= display_time(article.published_at) %>
-            <%= tag_links(article, "dans") unless article.tags.empty? %>
-          </small>          
-          </p>
-      </div>
-   </footer>
-  </article>
 <% @i = 1 %>
 <% else %>
-<div id="article-<%= article.id %>" class='h-entry hentry h-as-note'>
-  <h3><%= link_to_permalink(article,article.title) %></h3>
+<article id="article-<%= article.id %>" class='h-entry hentry h-as-note row'>
+  <header class='col-lg-2 col-lg-offset-1'>
+    <div class='meta'>
+      <p class='text-right'>
+        <img src='<%= File.join(this_blog.base_url, "images/theme/icon-write-large.png") %>' style='margin-top: 10px' /><br />
+        <small><time>Le <%= display_date(article.published_at) %></time><br /> 
+          <%= tag_links(article, "") unless article.tags.empty? %>
+        </small>
+        
+      </p>
+    </div>
+  </header>
   
-  <% s = truncate(article.html(:body).strip_html, length: 800, separator: ' ') 
-      article.body = s
-      %>
-        <%= article.html(:body) %>
-        <footer class='meta row hidden-phone'>
-          <div class='col-lg-12'>
-            <p>
-              <small><%= _("Publié le") %>
-                <%= display_date(article.published_at) %> à <%= display_time(article.published_at) %>
-                <%= tag_links(article, "dans") unless article.tags.empty? %>
-              </small>          
-              </p>
-          </div>
-       </footer>
-</div>
+  <section class='col-lg-7'>
+    <h3><%= link_to_permalink(article,article.title) %></h3>
+  
+    <% s = truncate(article.html(:body).strip_html, length: 800, separator: ' ') 
+        article.body = s
+    %>
+    <%= article.html(:body) %>
+  </section>
+  <hr class='col-lg-9 col-lg-offset-1' />
+</article>
 <% end %>
-<hr />

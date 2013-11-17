@@ -1,15 +1,31 @@
-<div class="col-lg-8 col-lg-offset-2">
-  <% for note in @notes -%>
-  <div class='h-entry hentry h-as-note'>
-    <article>
-      <p class='p-name entry-title e-content entry-content article'><%= note.html(:body).strip_html.slice(0..800) %></p>
+<% for note in @notes -%>
+  <article class='h-entry hentry h-as-note row'>
+    <header class='col-lg-2 col-lg-offset-1'>
+      <div class='meta'>
+        <p class='text-right'>
+          <img src='<%= File.join(this_blog.base_url, "images/theme/icon_twitter_large.png") %>' style='margin-top: 10px' /><br />
+          <small>
+            <time>Le <%= display_date(note.published_at) %></time>
+          </small>
+        </p>
+      </div>
+    </header>
+    <section class='col-lg-7'>
+      <p class='p-name entry-title e-content entry-content article'><%= note.html(:body).strip_html %></p>
       <footer>
-        <small><%= link_to_permalink(note, display_date_and_time(note.published_at)) %></small>
+        <small>
+          <%= link_to_permalink(note, "Le #{display_date(note.published_at)} à #{display_time(note.published_at)}") %> |
+          par <a href="http://t37.net" class="p-author h-card"><%= note.user.nickname %></a>
+          <%= view_on_twitter note %>
+        </small>
       </footer>
+    </section>
+      <hr class='col-lg-9 col-lg-offset-1' />
     </article>
-        <hr />
-  </div>
   <% end -%>
-</div>
 
-<%= paginate @notes, :next_label => "#{_("Next page")} &raquo;", :previous_label => "&laquo; #{_('Previous page')}" %>
+<div class='row'>
+  <div class='col-lg-8 col-lg-offset-3'>
+    <%= paginate @notes, :next_label => "#{_("Next page")} &raquo;", :previous_label => "&laquo; #{_('Previous page')}" %>
+  </div>
+</div>
