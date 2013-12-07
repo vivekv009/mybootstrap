@@ -15,7 +15,7 @@
     </div>
   </header>
   <section class='col-lg-7'>
-    <p class='p-name entry-title e-content entry-content article'><%= note.html(:body).strip_html %></p>
+    <p class='p-name entry-title e-content entry-content article'><%= note.html(:body) %></p>
     <footer>
       <small>
         <%= link_to_permalink(note, "Le #{display_date(note.published_at)} à #{display_time(note.published_at)}") %> |
@@ -39,7 +39,7 @@
     </div>
   </header>
   <section class='col-lg-7'>
-    <p class='p-name entry-title e-content entry-content article'><%= note.html(:body).strip_html %></p>
+    <p class='p-name entry-title e-content entry-content article'><%= truncate(note.html(:body).strip_html, length: 150, separator: ' ', omissions: '...') %></p>
     <footer>
       <small>
         <%= link_to_permalink(note, "Le #{display_date(note.published_at)} à #{display_time(note.published_at)}") %> |
