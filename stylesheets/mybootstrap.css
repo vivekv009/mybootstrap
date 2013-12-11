@@ -65,6 +65,10 @@ p.subtitle {
   margin-right: auto;
 }
 
+.col-lg-7 p, .col-lg-7 li {
+  font-family: "freight-text-pro", Georgia, "Times New Roman", Times, serif;;
+}
+
 /*
 .container {
   margin-left: auto;
