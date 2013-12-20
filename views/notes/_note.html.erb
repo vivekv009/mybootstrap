@@ -8,10 +8,6 @@
           <time>le <%= display_date(note.published_at) %></time>
         </small>
       </p>
-      <hr />
-      <a href='http://leweb.co'>
-        <img src='<%= File.join(this_blog.base_url, "images/theme/leweb2013.jpg") %>' alt="LeWeb Paris 2013" class='centered'>
-      </a>
     </div>
   </header>
   <section class='col-lg-7'>
@@ -39,7 +35,7 @@
     </div>
   </header>
   <section class='col-lg-7'>
-    <p class='p-name entry-title e-content entry-content article'><%= truncate(note.html(:body).strip_html, length: 150, separator: ' ', omissions: '...') %></p>
+    <p class='p-name entry-title e-content entry-content article'><%= truncate(note.html(:body).strip_html, length: 320, separator: ' ', omissions: '...') %></p>
     <footer>
       <small>
         <%= link_to_permalink(note, "Le #{display_date(note.published_at)} à #{display_time(note.published_at)}") %> |
