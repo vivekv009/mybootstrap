@@ -65,9 +65,20 @@ p.subtitle {
   margin-right: auto;
 }
 
+.col-lg-7 {
+  width: 62.4%;
+}
+
 .col-lg-7 p, .col-lg-7 li {
-  font-family: "freight-text-pro", Georgia, "Times New Roman", Times, serif;
   letter-spacing: -.01rem;
+  font-style: normal;
+  color: #333332;
+  -webkit-font-smoothing: antialiased;
+  0.1599999964237213px;
+}
+
+.col-lg-7 p, .col-lg-7 ul {
+  margin-bottom: 30px;
 }
 
 /*

@@ -7,6 +7,10 @@ def category_name(permalink)
   Category.find_by_permalink(permalink).name
 end
 
+def tag_links(article, prefix="Tags")
+  _(prefix) + " " + article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
+end
+
 def display_comments_counter(article)
   link_to(content_tag(:i, "", :class => 'icon-comment icon-white') + " " + pluralize(article.published_comments.size,
     _('%d comment', article.published_comments.size),
