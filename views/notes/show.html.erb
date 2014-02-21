@@ -6,7 +6,8 @@
           <img src='/images/theme/frederic-de-villamil-circle.jpg' alt="Frédéric de Villamil" /><br /> 
         </a>
         <small><span class='bold'><%= @note.user.nickname %></span><br />
-          <time>le <%= display_date(@note.published_at) %></time>
+          <time><%= link_to_permalink(@note, display_date_and_time(@note.published_at)) %></time><br />
+          <%= view_on_twitter @note %>
         </small>
       </p>
       <hr />
@@ -19,7 +20,7 @@
     </div>
   </header>  
   
-  <div class='col-lg-7'>
+  <div class='col-lg-8'>
     <div class='h-entry hentry h-as-note'>
       <% if @reply %>
         <%= render :partial => "note_reply_context", :object => @reply %>
@@ -29,8 +30,8 @@
         <div class='p-name entry-title e-content entry-content article'><%= @note.html(:body) %></div>
         <footer>
           <small>
-            <%= link_to_permalink(@note, display_date_and_time(@note.published_at)) %>
-            <%= view_on_twitter @note %>
+            
+            
           </small>
         </footer>
       </article>

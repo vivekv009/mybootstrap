@@ -1,50 +1,41 @@
-<% if @i == 0 %>
+<% if @i == 0 && !params[:page] %>
 <article class='h-entry hentry h-as-note row'>
   <header class='col-lg-2 col-lg-offset-1'>
     <div class='meta'>
       <p class='text-right'>
         <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' /><br />
         <small><span class='bold'><%= note.user.nickname %></span><br />
-          <time>le <%= display_date(note.published_at) %></time>
+          <time> <%= link_to_permalink(note, "le #{display_date(note.published_at)}") %></time>
         </small>
       </p>
     </div>
   </header>
-  <section class='col-lg-7'>
-    <p class='p-name entry-title e-content entry-content article'><%= note.html(:body) %></p>
-    <footer>
-      <small>
-        <%= link_to_permalink(note, "Le #{display_date(note.published_at)} à #{display_time(note.published_at)}") %> |
-        par <a href="http://t37.net" class="p-author h-card"><%= note.user.nickname %></a>
-        <%= view_on_twitter note %>
-      </small>
-    </footer>
+  <section class='col-lg-8'>
+    <div class='p-name entry-title e-content entry-content article'><%= note.html(:body) %></div>
   </section>
-  <hr class='col-lg-9 col-lg-offset-1' />
+  <hr class='col-lg-10 col-lg-offset-1' />
 </article>
 <% else %>
 <article class='h-entry hentry h-as-note row'>
   <header class='col-lg-2 col-lg-offset-1'>
     <div class='meta'>
       <p class='text-right'>
-        <img src='<%= File.join(this_blog.base_url, "images/theme/icon_twitter_large.png") %>' style='margin-top: 10px' /><br />
+        <% if @i == 0 %>
+        <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' /><br />
+        <% else %>
+        <img src='<%= File.join(this_blog.base_url, "images/theme/icon_twitter_large.png") %>' /><br />        
+        <% end %>
         <small>
-          <time>Le <%= display_date(note.published_at) %></time>
+          <span class='bold'><%= note.user.nickname %></span><br />
+          <time> <%= link_to_permalink(note, "le #{display_date(note.published_at)}") %></time>
         </small>
       </p>
     </div>
   </header>
-  <section class='col-lg-7'>
+  <section class='col-lg-8'>
     <p class='p-name entry-title e-content entry-content article'><%= truncate(note.html(:body).strip_html, length: 320, separator: ' ', omissions: '...') %></p>
-    <footer>
-      <small>
-        <%= link_to_permalink(note, "Le #{display_date(note.published_at)} à #{display_time(note.published_at)}") %> |
-        par <a href="http://t37.net" class="p-author h-card"><%= note.user.nickname %></a>
-        <%= view_on_twitter note %>
-      </small>
-    </footer>
   </section>
-  <hr class='col-lg-9 col-lg-offset-1' />
+  <hr class='col-lg-10 col-lg-offset-1' />
 </article>
 <% end %>
 <% @i = 1 %>

@@ -1,10 +1,12 @@
+<% @i = 0%>
+
 <div class='row'>
-  <h1 class='page-header col-lg-7 col-lg-offset-3'>Articles publiés dans : <%= @grouping.name %></h1>
+  <h1 class='page-header col-lg-8 col-lg-offset-2'>Articles publiés dans : <%= @grouping.name %></h1>
 </div>
   <%= render :partial => 'article', :collection => @articles %>
 
 <div class='row'>
   <div class='paginate col-lg-7 col-lg-offset-3'>
-  <%= paginate @articles, { :previous_label => _('Previous'), :next_label => _('Next')  } %>
+  <%= paginate @articles %>
   </div>    
 </div>  

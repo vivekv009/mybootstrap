@@ -1,6 +1,6 @@
-<% if @i == 0%>
-<article id="article-<%= article.id %>" class='h-entry hentry h-as-note row' style='margin-top: 29px'>
-  <header class='col-lg-2 col-lg-offset-1'>
+<% if @i == 0 %>
+<article id="article-<%= article.id %>" class='h-entry hentry h-as-note row' style='margin-top: 33px'>
+  <header class='col-lg-2 col-lg-offset-1' style='border: #ff0 1px solid'>
     <div class='meta'>
       <p class='text-right'>
         <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' style='margin-top: 10px' /><br />
@@ -24,31 +24,29 @@
     </div>
   </header>
   
-  <section class='col-lg-7'>
+  <section class='col-lg-8'>
     <h2 class='page-header p-name'><%= link_to_permalink(article,article.title) %></h2>
     <%= article.html(:body) %>
     <%= article.html(:extended) %>    
   </section>
   <hr class='col-lg-9 col-lg-offset-1' />
 </article>
-
-<% @i = 1 %>
 <% else %>
 <article id="article-<%= article.id %>" class='h-entry hentry h-as-note row'>
   <header class='col-lg-2 col-lg-offset-1'>
     <div class='meta'>
       <p class='text-right'>
-        <img src='<%= File.join(this_blog.base_url, "images/theme/icon-write-large.png") %>' style='margin-top: 10px' /><br />
+        <img src='<%= File.join(this_blog.base_url, "images/theme/icon-write-large.png") %>' style='margin-top: 33px' /><br />
         <small><time>Le <%= display_date(article.published_at) %></time><br /> 
-          <%= tag_links(article, "") unless article.tags.empty? %>
+          <%= tag_links(article, " ") unless article.tags.empty? %>
         </small>
         
       </p>
     </div>
   </header>
   
-  <section class='col-lg-7'>
-    <h3><%= link_to_permalink(article,article.title) %></h3>
+  <section class='col-lg-8'>
+    <h2><%= link_to_permalink(article,article.title) %></h2>
   
     <% s = truncate(article.html(:body).strip_html, length: 320, separator: ' ') 
         article.body = s
@@ -58,3 +56,4 @@
   <hr class='col-lg-9 col-lg-offset-1' />
 </article>
 <% end %>
+<% @i = 1 %>

@@ -5,11 +5,11 @@ require 'json'
 
 def view_on_twitter(status)
   return if status.twitter_id.nil? or status.twitter_id.empty?
-  return " | " + link_to(_("View on Twitter"), File.join('https://twitter.com', status.user.twitter_account, 'status', status.twitter_id), {class: 'u-syndication', rel: 'syndication'})
+  return link_to('voir sur Twitter', File.join('https://twitter.com', status.user.twitter_account, 'status', status.twitter_id), {class: 'u-syndication', rel: 'syndication'})
 end
 
-def tag_links(article, prefix="Tags")
-  _(prefix) + " " + article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
+def tag_links(article, prefix="tags")
+  t(".#{prefix}").to_s + " " + article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
 end
 
 def render_similar_posts(article)
@@ -57,4 +57,20 @@ end
 
 def note_title(content)
   content.strip_html.slice(0..80)
+end
+
+def t_month(month)
+  return "janvier" if month == "january"
+  return "fevrier" if month == "february"
+  return "mars" if month == "march"
+  return "avril" if month == "april"
+  return "mai" if month == "may"
+  return "juin" if month == "june"
+  return "juillet" if month == "july"
+  return "aout" if month == "august"
+  return "septembre" if month == "september"
+  return "octobre" if month == "october"
+  return "novembre" if month == "november"
+  return "décembre" if month == "december"
+  return "oops"
 end

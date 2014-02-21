@@ -9,7 +9,7 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.css", "/stylesheets/theme/mybootstrap.css", "user-styles.css", :media => 'all' %>
-  <%= meta_tag 'robots', 'noindex, follow' if stop_index_robots? %>
+  <%= meta_tag 'robots', 'noindex, follow' if stop_index_robots?(this_blog) %>
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%= url_for :controller => '/xml', :action => 'rsd' %>" />
   <%- if feed_atom %>
     <link rel="alternate" type="application/atom+xml" title="Atom" href="<%= feed_atom %>" />
@@ -30,36 +30,39 @@
   <div class='container'>
     <div class='row'>
       <div class='col-lg-10 col-lg-offset-1'>
-        <nav class='navbar navbar-default' role='navigation'>
-          <div class="navbar-header">
-          <% if controller.controller_name == 'articles' && controller.action_name == 'index'%>
-            <h1><%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %></h1>          
-          <% else %>
-            <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
-          <%end%>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class='nav navbar-nav pull-right'>
-              <li class='hidden-phone'><%= link_to(_("Archives"), {:controller => 'articles', :action => 'archives'}) %></li>
-              <li class='divider-vertical'></li>
-              <li class='hidden-phone'><%= link_to(_("À propos"), {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
-              <li class='divider-vertical'></li>
-              <li class='hidden-phone'>
-                <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                    <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="form-control" />
-                  </div>
-                </form>
-              </li>
-              <li><a href="https://github.com/fdv" rel="me"><img src="/images/theme/icon_github.png" alt="Github" /></a></li>
-              <li><a href="http://linkedin.com/in/fdevillamil" rel="me"><img src="/images/theme/icon_linkedin.png" alt="Linkedin" /></a></li>
-              <li class='divider-vertical'></li>
-              <li><a href="https://twitter.com/fdevillamil" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/icon_twitter.png" alt="Suivez-moi sur Twitter"></a></li>
-              <li><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" title="Rejoignez gratuitement les 1142 abonnés par email" rel="nofollow"><img src="/images/theme/icon_email.png"></a></li>
-              <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow" title="Rejoignez gratuitement les 3484 abonnés par RSS"><img src="/images/theme/icon_rss.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"></a></li>
-            </ul>
-          </div>
-        </nav>
+        <div class='row'>
+          <nav class='navbar navbar-default' role='navigation'>
+            <div class="navbar-header">
+            <% if controller.controller_name == 'articles' && controller.action_name == 'index'%>
+              <h1><%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %></h1>          
+            <% else %>
+              <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
+            <%end%>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class='nav navbar-nav pull-right'>
+                <li class='hidden-phone'><%= link_to(t(".archives"), {:controller => 'articles', :action => 'archives'}) %></li>
+                <li class='divider-vertical'></li>
+                <li class='hidden-phone'><%= link_to("A propos", {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
+                <li class='divider-vertical'></li>
+                <li class='hidden-phone'>
+                  <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                      <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="form-control" />
+                    </div>
+                  </form>
+                </li>
+                <li><a href="https://github.com/fdv" rel="me"><img src="/images/theme/icon_github.png" alt="Github" /></a></li>
+                <li><a href="http://linkedin.com/in/fdevillamil" rel="me"><img src="/images/theme/icon_linkedin.png" alt="Linkedin" /></a></li>
+                <li class='divider-vertical'></li>
+                <li><a href="https://twitter.com/fdevillamil" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/icon_twitter.png" alt="Suivez-moi sur Twitter"></a></li>
+                <li><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" title="Rejoignez gratuitement les 1142 abonnés par email" rel="nofollow"><img src="/images/theme/icon_email.png"></a></li>
+                <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow" title="Rejoignez gratuitement les 3484 abonnés par RSS"><img src="/images/theme/icon_rss.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"></a></li>
+              </ul>
+            </div>
+          </nav>
+
+        </div>
       </div>
     </div>
     <div id='page'>

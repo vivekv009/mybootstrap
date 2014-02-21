@@ -2,59 +2,6 @@ body {
     background: #fff;
 }
 
-/* Flatten das boostrap */
-/*
-.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  -webkit-border-radius: 0px !important;
-  -moz-border-radius: 0px !important;
-  border-radius: 0px !important;
-  border-collapse: collapse !important;
-  background-image: none !important;
-} */
-
-header h1, p#title {
-  font-size: 41.25px;
-  line-height: 48px;
-  font-weight: bold;
-  margin-bottom: 0;
-  float: left;
-  font-weight: 400;
-  width: 100%;
-}
-
-h1, h2, h3, h4, h5 {
-	/*font-weight: 400; */
-}
-
-p#title {
-  margin-top: 12px;
-}
-
-p.subtitle {
-  font-weight: 300;
-  margin-bottom: 18px;
-  margin-left: 20px;
-  font-size: 14px;
-  line-height: 48px;
-  text-rendering: optimizelegibility;
-  float: left;
-  width: 50%;
-  text-align: left;
-  font-style: italic;
-}
-
-#logo {
-  margin-top: 20px;
-  padding-top: 328px;
-}
-
-#outside {
-  margin: auto;
-}
-
 #main {
   margin-top: 0px;
   margin-bottom: 20px;
@@ -65,11 +12,7 @@ p.subtitle {
   margin-right: auto;
 }
 
-.col-lg-7 {
-  width: 62.4%;
-}
-
-.col-lg-7 p, .col-lg-7 li {
+.col-lg-8 p, .col-lg-8 li {
   letter-spacing: -.01rem;
   font-style: normal;
   color: #333332;
@@ -77,16 +20,9 @@ p.subtitle {
   0.1599999964237213px;
 }
 
-.col-lg-7 p, .col-lg-7 ul {
+.col-lg-8 p, .col-lg-8 ul {
   margin-bottom: 30px;
 }
-
-/*
-.container {
-  margin-left: auto;
-  margin-right: auto; 
-}
-*/
 
 #page {
   margin: 40px 0;
@@ -94,15 +30,6 @@ p.subtitle {
 
 .navbar-inner {
   border-radius: 0;
-}
-
-#sidebar {
-  margin-top: 24px;
-}
-
-#sidebar p {
-  font-size: 100%;
-  
 }
 
 img.thumb {
@@ -191,14 +118,6 @@ header div.meta small time.bold {
 header {
   clear: both;
 }
-
-/*
- .navbar-inner .container {
-  width: 1100px;
-  margin:0 auto;
-  padding:0;
-}
-*/
 
 .navbar .nav > li > a {
 	padding: 8px 4px;
