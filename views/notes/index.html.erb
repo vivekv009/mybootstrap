@@ -6,7 +6,7 @@
     <div class='meta'>
       <p class='text-right'>
         <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' /><br />
-        <small><span class='bold'><%= note.user.nickname %></span><br />
+        <small><%= note.user.nickname %><br />
           <time> <%= link_to_permalink(note, "le #{display_date(note.published_at)}") %></time>
         </small>
       </p>

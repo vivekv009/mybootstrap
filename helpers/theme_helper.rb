@@ -19,22 +19,7 @@ def render_similar_posts(article)
       mylist += Tag.find_by_name(tag.name).articles
     end
     mylist = mylist.uniq
-    tablo = mylist.sort_by {rand}[0,4]
-    i = 0
-    html = "<div id='related' class='row'>"
-    html << "<h3>À lire également</h3>"
-    html << "<p>Si <em>#{article.title}</em> vous a intéressé, vous pouvez poursuivre votre lecture avec ces billets similaires :</p>"
-    html << "</div>"
-    html << '<div class="row">'
-    tablo.each do |article|
-    html << "<div class='col-lg-3'>"
-      thumb = display_thumbnail(article)
-      html << link_to_permalink(article, thumb)
-      html << "<small>#{link_to article.title, article.permalink_url}</small>"
-      html << "</div>"
-      i = i + 1
-    end
-    html << "</div>"
+    mylist.sort_by {rand}[0,4]
   end
 end
 

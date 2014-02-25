@@ -4,14 +4,14 @@
     <div class='meta'>
       <p class='text-right'>
         <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' style='margin-top: 10px' /><br />
-        <small><span class='bold'><%= article.user.nickname %></span><br />
+        <small><%= article.user.nickname %><br />
           <time>le <%= display_date(article.published_at) %></time>
         </small>
       </p>
       <hr />
       <p class='text-right'>
         <small>
-          <%= tag_links(article, "<span class='bold'>Dans</span><br />") unless article.tags.empty? %>
+          <%= tag_links(article, " ") unless article.tags.empty? %>
         </small>
       </p>
       <hr />

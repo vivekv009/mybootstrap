@@ -5,7 +5,7 @@
         <a href="http://t37.net" class="p-author h-card author-icon">
           <img src='/images/theme/frederic-de-villamil-circle.jpg' alt="Frédéric de Villamil" /><br /> 
         </a>
-        <small><span class='bold'><%= @note.user.nickname %></span><br />
+        <small><%= @note.user.nickname %><br />
           <time><%= link_to_permalink(@note, display_date_and_time(@note.published_at)) %></time><br />
           <%= view_on_twitter @note %>
         </small>
@@ -25,17 +25,9 @@
       <% if @reply %>
         <%= render :partial => "note_reply_context", :object => @reply %>
       <% end %>
-    
       <article class='status'>
         <div class='p-name entry-title e-content entry-content article'><%= @note.html(:body) %></div>
-        <footer>
-          <small>
-            
-            
-          </small>
-        </footer>
       </article>
-    </div>
-    
+    </div>    
   </div>
 </div>

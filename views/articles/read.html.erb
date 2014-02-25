@@ -3,14 +3,14 @@
     <div class='meta'>
       <p class='text-right'>
         <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' style='margin-top: 10px' /><br />
-        <small><span class='bold'><%= @article.user.nickname %></span><br />
+        <small><%= @article.user.nickname %><br />
           <time>le <%= display_date(@article.published_at) %></time>
         </small>
       </p>
       <hr />
       <p class='text-right'>
         <small>
-          <%= tag_links(@article, "<span class='bold'>Dans</span><br />") unless @article.tags.empty? %>
+          <%= tag_links(@article, " ") unless @article.tags.empty? %>
         </small>
       </p>
       <hr />
@@ -28,13 +28,23 @@
 
     <%= @article.html(:body) %>
     <%= @article.html(:extended) %>
-
     <footer>
-      <div class='well'>
-        <img src='/images/theme/frederic-de-villamil-square.jpg' alt="Frédéric de Villamil" class='alignleft' /> 
-        Une information, une correction ou un complément à ajouter en privé ? Envoyez moi un petit mail à <a href='mailto:frederic@t37.net'>frederic@t37.net</a>. N'hésitez pas aussi à faire un tour sur <a href='http://twitter.com/fdevillamil' rel='external nofollow'>Twitter</a>, <a href="https://plus.google.com/118260479267451543665/posts" rel="external nofollow">Google+</a> ou encore <a href='http://www.facebook.com/RayonUx' rel='external nofollow'>Facebook</a> pour d'autres news.
+      <hr />
+      
+      <% related = render_similar_posts @article %>
+      <div id='related' class='row'>
+        <div class='col-lg-12'>
+          <h3>À lire après <em><%= @article.title %></em></h3>
+        </div>
       </div>
-
-      <%= render_similar_posts @article %>  
+      <div class='row'>
+        <% related.each do |article| %>
+        <div class='col-lg-3'>
+          <%= link_to_permalink(article, display_thumbnail(article)) %>
+          <small><%= link_to article.title, article.permalink_url %></small>
+        </div>
+        <% end %>
+      </div>
     </footer>
+  </div>
 </article>
