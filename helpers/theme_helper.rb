@@ -25,19 +25,26 @@ end
 
 def display_thumbnail(article)
   doc = Hpricot(article.body + article.extended)
-  img = doc.at("img.carousel")
+  img = doc.at("img.centered")
   
   img = doc.at("img") unless img
   
   if img
-    foo = img.attributes['src'].split('/').last
+    if img.attributes['src'].include?('http://')
+      path = File.join(Rails.root, 'public', img.attributes['src'].split('/')[3..-2].join('/'))
+    else
+      path = File.join(Rails.root, 'public', img.attributes['src'].split('/')[0..-2].join('/'))
+    end
 
-    if File.exists?(img.attributes['src'].gsub(foo, "thumb_#{foo}").gsub("medium_", "")) 
-      return image_tag(img.attributes['src'].gsub(foo, "thumb_#{foo}").gsub("medium_", ""), :alt => img.attributes['alt'], :class => 'thumb')
+    picture = img.attributes['src'].split('/').last
+    filepath = File.join(path, "thumb_#{picture}")
+
+    if File.exists?(filepath) 
+      return image_tag(img.attributes['src'].gsub(picture, "thumb_#{picture}").gsub("medium_", ""), :alt => img.attributes['alt'], :class => 'circular')
     end
   end
   
-  return image_tag(File.join(this_blog.base_url, "images", "theme", "placeholder.jpg"), :alt => h(article.title), :class => 'thumb')
+  return image_tag(File.join(this_blog.base_url, "images", "theme", "placeholder.jpg"), :alt => h(article.title), :class => 'thumb circular')
 end
 
 def note_title(content)
