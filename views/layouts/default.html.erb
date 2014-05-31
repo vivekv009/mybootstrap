@@ -25,45 +25,14 @@
   <%= meta_tag 'og:title', @article ? @article.title : @page_title %>
   
   
-    <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ" />
+  <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="author" href="https://plus.google.com/118260479267451543665" />
   <link rel="icon" type="image/png" href="/images/theme/favicon.png" />
   
-  <!-- Adds Twitter card if article -->
-  <% 
-  if @article 
-    require 'hpricot'
-    require 'open-uri'
-    doc = Hpricot(@article.body + @article.extended)
-    img = doc.at("img.centered")  
-    img = doc.at("img") unless img
-    foo = img.attributes['src'] if img
-  %>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:creator" content="@fdevillamil"/>
-  <meta name="twitter:site" content="@fdevillamil"/>
-  <meta name="twitter:title" content="<%= h(@article.title) %>"/>
-  <meta name="twitter:description" content="<%= h(@description) %>"/>
-  <meta name="twitter:domain" content="t37.net">
-  <% if img %>
-    <meta name="twitter:image" content="<%= foo %>"/>
-  <% end %>
-  
-  <meta itemprop="name" content="<%= h(@article.title) %>">
-  <meta itemprop="description" content="<%= h(@description) %>">
-  <% if img %>
-    <meta itemprop="image" content="<%= foo %>" />
-  <% end %>
-  <meta property="og:locale" content="fr_fr">
-  <meta property="og:description" content="<%= h(@description) %>">
-  <meta property="og:url" content="<%= @article.permalink_url %>">
-  <meta property="og:type" content="article">
-  <% if img %>
-    <meta property="og:image" content="<%= foo %>" />
-  <% end %>
-  <% end %>
-  
+  <%= twitter_card(@article, @description) if @article %>
+  <%= open_graph(@article, @description) if @article %>
+  <%= google_plus(@article, @description) if @article %>  
 </head>
 <body>
   <div class='container'>

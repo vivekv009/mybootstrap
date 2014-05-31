@@ -24,23 +24,21 @@ def render_similar_posts(article)
 end
 
 def display_thumbnail(article)
-  doc = Hpricot(article.body + article.extended)
-  img = doc.at("img.centered")
-  
-  img = doc.at("img") unless img
+  img = get_image(article)
   
   if img
-    if img.attributes['src'].include?('http://')
-      path = File.join(Rails.root, 'public', img.attributes['src'].split('/')[3..-2].join('/'))
+    uri = img.attributes['src']
+    if uri.include?('http://')
+      path = File.join(Rails.root, 'public', uri.split('/')[3..-2].join('/'))
     else
-      path = File.join(Rails.root, 'public', img.attributes['src'].split('/')[0..-2].join('/'))
+      path = File.join(Rails.root, 'public', uri.split('/')[0..-2].join('/'))
     end
 
-    picture = img.attributes['src'].split('/').last
+    picture = uri.split('/').last
     filepath = File.join(path, "thumb_#{picture}")
 
     if File.exists?(filepath) 
-      return image_tag(img.attributes['src'].gsub(picture, "thumb_#{picture}").gsub("medium_", ""), :alt => img.attributes['alt'], :class => 'circular')
+      return image_tag(uri.gsub(picture, "thumb_#{picture}").gsub("medium_", ""), :alt => img.attributes['alt'], :class => 'thumb circular')
     end
   end
   
@@ -65,4 +63,48 @@ def t_month(month)
   return "novembre" if month == "november"
   return "décembre" if month == "december"
   return "oops"
+end
+
+def get_image(article)
+  doc = Hpricot(article.body + article.extended)
+  img = doc.at("img.centered")
+  
+  return img if img
+  doc.at("img")
+end
+
+def twitter_card(article, description)
+  img = get_image(article)
+
+  <<-HTML
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@fdevillamil" />
+  <meta name="twitter:site" content="@fdevillamil" />
+  <meta name="twitter:title" content="#{h(article.title)}" />
+  <meta name="twitter:description" content="#{h(description)}" />
+  <meta name="twitter:domain" content="t37.net" />
+  <meta name="twitter:image" content="#{img.attributes['src'] if img}" />
+  HTML
+end
+
+def open_graph(article, description)
+  img = get_image(article)
+  
+  <<-HTML
+  <meta property="og:locale" content="fr_fr" />
+  <meta property="og:description" content="#{h(description)}" />
+  <meta property="og:url" content="#{article.permalink_url}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="#{img.attributes['src'] if img}" />
+  HTML
+end
+
+def google_plus(article, description)
+  img = get_image(article)
+  
+  <<-HTML
+  <meta itemprop="name" content="#{h(article.title)}" />
+  <meta itemprop="description" content="#{h(description)}" />
+  <meta itemprop="image" content="#{img.attributes['src'] if img}" />
+  HTML
 end
