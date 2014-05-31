@@ -50,19 +50,22 @@ def note_title(content)
 end
 
 def t_month(month)
-  return "janvier" if month == "january"
-  return "fevrier" if month == "february"
-  return "mars" if month == "march"
-  return "avril" if month == "april"
-  return "mai" if month == "may"
-  return "juin" if month == "june"
-  return "juillet" if month == "july"
-  return "aout" if month == "august"
-  return "septembre" if month == "september"
-  return "octobre" if month == "october"
-  return "novembre" if month == "november"
-  return "décembre" if month == "december"
-  return "oops"
+  months = {
+    'january' => 'janvier',
+    'february' => 'fevrier',
+    'march' => 'mars',
+    'april' => 'avril',
+    'may' => 'mai',
+    'june' => 'juin',
+    'july' => 'juillet',
+    'august' => 'aout',
+    'september' => 'septembre',
+    'october' => 'octobre',
+    'november' => 'novembre',
+    'december' => 'décembre'
+  }
+  
+  return months[month] ? months[month] : 'Oooops'
 end
 
 def get_image(article)
