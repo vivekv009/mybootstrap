@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div id='page' <%= "style='margin-top: 600px;" unless ['redirect', 'view_page'].include?(controller.action_name) %>>
+    <div id='page' <%= "style='margin-top: 600px;'" unless ['redirect', 'view_page'].include?(controller.action_name) %>>
      <%= yield %>
    </div>
    <footer class='footer'>
