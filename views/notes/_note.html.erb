@@ -1,41 +1,13 @@
-<% if @i == 0 && !params[:page] %>
 <article class='h-entry hentry h-as-note row'>
-  <header class='col-lg-2 col-lg-offset-1'>
+  <header class='col-lg-2'>
     <div class='meta'>
       <p class='text-right'>
-        <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' /><br />
-        <small><%= note.user.nickname %><br />
-          <time> <%= link_to_permalink(note, "le #{display_date(note.published_at)}") %></time>
-        </small>
+        <img src='<%= File.join(this_blog.base_url, "images/theme/icon_twitter_large.png") %>' class='thumb circular' /><br />
       </p>
     </div>
   </header>
   <section class='col-lg-8'>
-    <div class='p-name entry-title e-content entry-content article'><%= note.html(:body) %></div>
+    <p class='p-name entry-title e-content entry-content article' style='margin-top: 25px'><%= link_to_permalink(note, truncate(note.html(:body).strip_html, length: 140, separator: ' ', omissions: '...')) %></p>
   </section>
-  <hr class='col-lg-10 col-lg-offset-1' />
+  <hr class='col-lg-10' />
 </article>
-<% else %>
-<article class='h-entry hentry h-as-note row'>
-  <header class='col-lg-2 col-lg-offset-1'>
-    <div class='meta'>
-      <p class='text-right'>
-        <% if @i == 0 %>
-        <img src='<%= File.join(this_blog.base_url, "images/theme/frederic-de-villamil-circle.jpg") %>' /><br />
-        <% else %>
-        <img src='<%= File.join(this_blog.base_url, "images/theme/icon_twitter_large.png") %>' /><br />        
-        <% end %>
-        <small>
-          <%= note.user.nickname %><br />
-          <time> <%= link_to_permalink(note, "le #{display_date(note.published_at)}") %></time>
-        </small>
-      </p>
-    </div>
-  </header>
-  <section class='col-lg-8'>
-    <p class='p-name entry-title e-content entry-content article'><%= truncate(note.html(:body).strip_html, length: 320, separator: ' ', omissions: '...') %></p>
-  </section>
-  <hr class='col-lg-10 col-lg-offset-1' />
-</article>
-<% end %>
-<% @i = 1 %>

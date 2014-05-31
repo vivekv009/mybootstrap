@@ -24,7 +24,6 @@
   <%= meta_tag 'og:site_name', this_blog.blog_name %>
   <%= meta_tag 'og:title', @article ? @article.title : @page_title %>
   
-  
   <meta name="google-site-verification" content="J-gVnJhn8X1o2LCIS_3Bgqqexo4KB5qf5GvoFQb2qEQ" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="author" href="https://plus.google.com/118260479267451543665" />
@@ -35,40 +34,54 @@
   <%= google_plus(@article, @description) if @article %>  
 </head>
 <body>
+  <% bigpicture = (controller.action_name != 'redirect') ? "_bigpicture" : "" %>
+  <% if controller.action_name != 'redirect' %>
+  <div class='img-wrapper'>
+    <div class='title-wrapper'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-lg-10 col-lg-offset-1'>
+            <%= get_title %>
+            <p>
+              <small>Frédéric de Villamil</small>
+              <img src='/images/theme/frederic-de-villamil-circle.png' alt="Frédéric de Villamil" class='circular' />
+              <small>Le Rayon UX </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
   <div class='container'>
     <div class='row'>
-      <div class='col-lg-10 col-lg-offset-1'>
+      <div class='col-lg-12'>
         <div class='row'>
-          <nav class='navbar navbar-default' role='navigation'>
+          <nav class='navbar navbar-default <%= "bigpicture" if controller.action_name != 'redirect' %>' role='navigation'>
             <div class="navbar-header">
-            <% if controller.controller_name == 'articles' && controller.action_name == 'index'%>
-              <h1><%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %></h1>          
-            <% else %>
               <%= link_to(this_blog.blog_name.html_safe, this_blog.base_url, :class => 'navbar-brand') %>
-            <%end%>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class='nav navbar-nav pull-right'>
- <li class='hidden-phone'><%= link_to("English", {:controller => 'tags', :action => 'show', :id => 'english'}) %></li>
-                <li class='divider-vertical'></li>
+                <li class='hidden-phone'><%= link_to("English", {:controller => 'tags', :action => 'show', :id => 'english'}) %></li>
                 <li class='divider-vertical'></li>
                 <li class='hidden-phone'><%= link_to(t(".archives"), {:controller => 'articles', :action => 'archives'}) %></li>
                 <li class='divider-vertical'></li>
                 <li class='hidden-phone'><%= link_to("A propos", {:controller => 'articles', :action => 'view_page', :name => 'frederic-de-villamil-et-le-rayon-ux'}) %></li>
                 <li class='divider-vertical'></li>
-                <li class='hidden-phone'>
+                <li class='hidden-phone' style='text-align: right'>
                   <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
                     <div class="form-group">
                       <input type="text" id="q" name="q" value="" placeholder="Chercher + entrée" size="10" class="form-control" />
                     </div>
                   </form>
                 </li>
-                <li><a href="https://github.com/fdv" rel="me"><img src="/images/theme/icon_github.png" alt="Github" /></a></li>
-                <li><a href="http://linkedin.com/in/fdevillamil" rel="me"><img src="/images/theme/icon_linkedin.png" alt="Linkedin" /></a></li>
+                <li><a href="https://github.com/fdv" rel="me"><img src="/images/theme/icon_github<%= bigpicture %>.png" alt="Github" /></a></li>
+                <li><a href="http://linkedin.com/in/fdevillamil" rel="me"><img src="/images/theme/icon_linkedin<%= bigpicture %>.png" alt="Linkedin" /></a></li>
                 <li class='divider-vertical'></li>
-                <li><a href="https://twitter.com/fdevillamil" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/icon_twitter.png" alt="Suivez-moi sur Twitter"></a></li>
-                <li><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" title="Rejoignez gratuitement les 1142 abonnés par email" rel="nofollow"><img src="/images/theme/icon_email.png"></a></li>
-                <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow" title="Rejoignez gratuitement les 3484 abonnés par RSS"><img src="/images/theme/icon_rss.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"></a></li>
+                <li><a href="https://twitter.com/fdevillamil" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/icon_twitter<%= bigpicture %>.png" alt="Suivez-moi sur Twitter"></a></li>
+                <li><a href="http://t37.us4.list-manage.com/subscribe?u=dbdd088684988408725cd5ab2&id=f9ba4f0896" title="Rejoignez gratuitement les 1142 abonnés par email" rel="nofollow"><img src="/images/theme/icon_email<%= bigpicture %>.png"></a></li>
+                <li><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="nofollow" title="Rejoignez gratuitement les 3484 abonnés par RSS"><img src="/images/theme/icon_rss<%= bigpicture %>.png" alt="Abonnez-vous au flux RSS et suivez les nouveaux articles du site"></a></li>
               </ul>
             </div>
           </nav>
@@ -76,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div id='page'>
+    <div id='page' <%= "style='margin-top: 600px;" if controller.action_name != 'redirect' %>>
      <%= yield %>
    </div>
    <footer class='footer'>

@@ -9,7 +9,7 @@ def view_on_twitter(status)
 end
 
 def tag_links(article, prefix="tags")
-  t(".#{prefix}").to_s + " " + article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
+  "#{prefix}" + " " + article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
 end
 
 def render_similar_posts(article)
@@ -110,4 +110,22 @@ def google_plus(article, description)
   <meta itemprop="description" content="#{h(description)}" />
   <meta itemprop="image" content="#{img.attributes['src'] if img}" />
   HTML
+end
+
+def get_title
+  page = params[:page] ? "<br />page #{params[:page]}" : ""
+  if controller.action_name == 'archives'
+     return content_tag(:h1, link_to("#{this_blog.blog_name}<br />Archives".html_safe, controller: 'articles', action: 'archives').html_safe).html_safe
+  end
+  
+  if controller.action_name == 'search'
+    return content_tag(:h1, link_to("Résultats de la recherche pour #{params[:q]}#{page}".html_safe, controller: 'articles', action: 'search', q: params[:q], page: params[:page]).html_safe).html_safe
+  end
+  
+  if controller.controller_name == 'tags' and controller.action_name == 'show'
+    published = params[:id] == 'english' ? "Articles In English" : "Articles publiés dans #{@grouping.display_name}"
+    return content_tag(:h1, link_to("#{published}#{page}".html_safe, controller: 'tags', action: 'show', id: params[:id], page: params[:page]).html_safe).html_safe
+  end
+  
+  return content_tag(:h1, link_to("#{this_blog.blog_name}#{page}".html_safe, this_blog.base_url).html_safe).html_safe
 end
