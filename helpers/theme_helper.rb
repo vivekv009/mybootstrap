@@ -126,6 +126,10 @@ def get_title
     published = params[:id] == 'english' ? "Articles In English" : "Articles publiés dans #{@grouping.display_name}"
     return content_tag(:h1, link_to("#{published}#{page}".html_safe, controller: 'tags', action: 'show', id: params[:id], page: params[:page]).html_safe).html_safe
   end
+
+  if controller.controller_name == 'notes' and controller.action_name == 'show'
+    return content_tag(:h1, link_to(truncate(@note.html(:body).strip_html, length: 66, separator: ' ', omissions: '...'), controller: 'notes', action: 'show', id: params[:id]))
+  end
   
   return content_tag(:h1, link_to("#{this_blog.blog_name}#{page}".html_safe, this_blog.base_url).html_safe).html_safe
 end
