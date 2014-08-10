@@ -9,5 +9,7 @@
   <section class='col-lg-8'>
     <p class='p-name entry-title e-content entry-content article' style='margin-top: 25px'><%= link_to_permalink(note, truncate(note.html(:body).strip_html, length: 140, separator: ' ', omissions: '...')) %></p>
   </section>
-  <hr class='col-lg-10' />
+  <footer class='col-lg-10 col-lg-offset-1'>
+    <hr />
+  </footer>
 </article>
