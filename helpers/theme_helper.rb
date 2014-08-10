@@ -16,7 +16,7 @@ def render_similar_posts(article)
   unless article.tags.empty?
     mylist = Array.new
     article.tags.each do |tag| 
-      mylist += Tag.find_by_name(tag.name).articles
+      mylist += Tag.find_by_name(tag.name).articles.where('state= ? and published = ? and id != ?', 'published', true, article.id)
     end
     mylist = mylist.uniq
     mylist.sort_by {rand}[0,4]
