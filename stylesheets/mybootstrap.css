@@ -224,3 +224,7 @@ p.p-name.entry-title.e-content.entry-content.article a {
 .p-name.entry-title.e-content.entry-content.article a:hover {
  text-decoration: underline; 
 }
+
+#page.img-margin {
+  margin-top: 600px;
+}
