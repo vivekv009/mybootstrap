@@ -119,7 +119,7 @@ def get_title
   end
   
   if controller.action_name == 'search'
-    return content_tag(:h1, link_to("Résultats de la recherche pour #{params[:q]}#{page}".html_safe, controller: 'articles', action: 'search', q: params[:q], page: params[:page]).html_safe).html_safe
+    return content_tag(:h1, link_to("Results for #{params[:q]}#{page}".html_safe, controller: 'articles', action: 'search', q: params[:q], page: params[:page]).html_safe).html_safe
   end
   
   if controller.controller_name == 'tags' and controller.action_name == 'show'
