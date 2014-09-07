@@ -53,29 +53,32 @@
     </div>
   </div>
   <% end %>
-  <nav class='navbar navbar-default <%= "bigpicture" unless ['redirect', 'view_page'].include?(controller.action_name) %>' role='navigation' style='padding: 0 20px'>
+  <nav class='navbar navbar-default' role='navigation' style='padding: 0 20px'>
     <div class="navbar-header">
       <%= link_to(this_blog.blog_name.html_safe, root_url, :class => 'navbar-brand') %>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class='nav navbar-nav pull-right'>
-        <li class='hidden-phone'><%= link_to(t(".archives"), {:controller => 'articles', :action => 'archives'}) %></li>
-        <li class='divider-vertical'></li>
-        <li class='hidden-phone' style='text-align: right'>
-          <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" id="q" name="q" value="" placeholder="Search" size="10" class="form-control" />
-            </div>
-          </form>
-        </li>
-        <li><a href="http://linkedin.com/" rel="me"><img src="/images/theme/icon_linkedin<%= bigpicture %>.png" alt="Linkedin" /></a></li>
-        <li class='divider-vertical'></li>
-        <li><a href="https://twitter.com/" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/icon_twitter<%= bigpicture %>.png" alt="Twitter"></a></li>
-        <li><a href="mailto:info@inuni.co" title="Enquiry" rel="nofollow"><img src="/images/theme/icon_email<%= bigpicture %>.png"></a></li>
-      </ul>
-    </div>
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class='nav navbar-nav pull-left nav-container'>
+            <li class='visible-lg'><%= link_to('STUDENT ESSENTIALS', root_url, :class => 'navbar-li') %></li>
+            <li class='visible-lg'><%= link_to('GRADUATE JOBS & INTERNSHIPS', root_url, :class => 'navbar-li') %></li>
+            <li class='visible-lg'><%= link_to('IMMIGRATION & BRITAIN', root_url, :class => 'navbar-li') %></li>
+          </ul>
+          <ul class='nav navbar-nav pull-right'>
+            <li class='hidden-phone'><%= link_to(t(".archives"), {:controller => 'articles', :action => 'archives'}) %></li>
+            <li class='divider-vertical'></li>
+            <li class='hidden-phone' style='text-align: right'>
+              <form id="sform" method="get" action="/search" accept-charset="UTF-8" class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" id="q" name="q" value="" placeholder="Search" size="10" class="form-control" />
+                </div>
+              </form>
+            </li>
+            <li class='divider-vertical'></li>
+            <li><a href="https://twitter.com/" rel="me" title="Comme 4190 personnes, suivez-moi sur Twitter"><img src="/images/theme/icon_twitter<%= bigpicture %>.png" alt="Twitter"></a></li>
+            <li><a href="mailto:info@inuni.co" title="Enquiry" rel="nofollow"><img src="/images/theme/icon_email<%= bigpicture %>.png"></a></li>
+          </ul>
+        </div>        
   </nav>
-
 </div>
 <div class='container'> 
   <div id='page' <%= "style='margin-top: 600px;'" unless ['redirect', 'view_page'].include?(controller.action_name) %>' >

@@ -94,7 +94,7 @@ def open_graph(article, description)
   img = get_image(article)
   
   <<-HTML
-  <meta property="og:locale" content="fr_fr" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="#{h(description)}" />
   <meta property="og:url" content="#{article.permalink_url}" />
   <meta property="og:type" content="article" />
@@ -114,18 +114,19 @@ end
 
 def get_title
   page = params[:page] ? "<br />page #{params[:page]}" : ""
-  if controller.action_name == 'archives'
-     return content_tag(:h1, link_to("#{this_blog.blog_name}<br />Archives".html_safe, controller: 'articles', action: 'archives').html_safe).html_safe
+  if controller.action_name == 'archives' or controller.action_name == 'search' or (controller.controller_name == 'tags' and controller.action_name == 'show')
+     # return content_tag(:h1, link_to("#{this_blog.blog_name}<br />Archives".html_safe, controller: 'articles', action: 'archives').html_safe).html_safe
+     return content_tag(:h1, link_to("#{this_blog.blog_name}<br />".html_safe, controller: 'articles', action: 'archives').html_safe).html_safe
   end
   
-  if controller.action_name == 'search'
-    return content_tag(:h1, link_to("Results for #{params[:q]}#{page}".html_safe, controller: 'articles', action: 'search', q: params[:q], page: params[:page]).html_safe).html_safe
-  end
+  # if controller.action_name == 'search'
+  #   return content_tag(:h1, link_to("Results for #{params[:q]}#{page}".html_safe, controller: 'articles', action: 'search', q: params[:q], page: params[:page]).html_safe).html_safe
+  # end
   
-  if controller.controller_name == 'tags' and controller.action_name == 'show'
-    published = params[:id] == 'english' ? "Articles In English" : "Articles publiés dans #{@grouping.display_name}"
-    return content_tag(:h1, link_to("#{published}#{page}".html_safe, controller: 'tags', action: 'show', id: params[:id], page: params[:page]).html_safe).html_safe
-  end
+  # if controller.controller_name == 'tags' and controller.action_name == 'show'
+  #   published = params[:id] == 'english' ? "Articles In English" : "Articles publiés dans #{@grouping.display_name}"
+  #   return content_tag(:h1, link_to("#{published}#{page}".html_safe, controller: 'tags', action: 'show', id: params[:id], page: params[:page]).html_safe).html_safe
+  # end
 
   if controller.controller_name == 'notes' and controller.action_name == 'show'
     return content_tag(:h1, link_to(truncate(@note.html(:body).strip_html, length: 66, separator: ' ', omissions: '...'), controller: 'notes', action: 'show', id: params[:id]))

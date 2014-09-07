@@ -56,6 +56,23 @@ header div.meta small time.bold {
   margin-bottom: 29px;
 }
 
+.navbar-li {
+  border-top: 1px solid #952121;
+  border-bottom: 3px solid #952121;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 80px;
+  font-weight: bold;
+  text-shadow: 0 2px 3px #707070;
+  
+}
+
+.nav-container {
+  padding: 20px 0;
+  margin-left: 75px;
+  overflow: hidden;
+}
+
 header {
   clear: both;
 }
@@ -148,8 +165,8 @@ article p a {
 }
 
 img.thumb {
-  width: 96px;
-  height: 96px;
+  width: 200px;
+  height: 200px;
   margin-top: 10px;  
 }
 
@@ -157,6 +174,9 @@ img.circular {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   display: inline;
 }
 
@@ -169,6 +189,7 @@ img.circular {
 }
 
 .img-wrapper {
+  margin-top: 90px;
   position: absolute;
   background-image: url('../../images/theme/top-background.jpeg'); 
   background-position: center center;
@@ -179,9 +200,10 @@ img.circular {
   top: 0;
   left: 0;
   width: 100%;
-  height: 600px;
+  height: 550px;
   z-index: 0;
 }
+
 
 .title-wrapper {
   position: absolute;
@@ -224,3 +246,4 @@ p.p-name.entry-title.e-content.entry-content.article a {
 .p-name.entry-title.e-content.entry-content.article a:hover {
  text-decoration: underline; 
 }
+

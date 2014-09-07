@@ -1,5 +1,5 @@
 <article id="article-<%= article.id %>" class='h-entry hentry h-as-note row'>
-  <header class='col-lg-2 col-lg-offset-1'>
+  <header class='col-lg-3 col-lg-offset-0'>
     <div class='meta'>
       <p class='text-right'>
         <%= display_thumbnail(article) %>
@@ -11,7 +11,7 @@
         article.body = s
     %>
     
-    <%= link_to_permalink(article, content_tag(:h3, article.title) + article.html(:body)) %>
+    <%= link_to_permalink(article, content_tag(:h4, article.title) + article.html(:body)) %>
     <small><%= tag_links(article, "") %></small>
   </section>
   <hr class='col-lg-8 col-lg-offset-2' />
