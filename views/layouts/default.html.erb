@@ -79,21 +79,20 @@
           </ul>
         </div>        
   </nav>
-</div>
 <div class='container'> 
-  <div id='page' <%= "style='margin-top: 600px;'" unless ['redirect', 'view_page'].include?(controller.action_name) %>' >
+  <div id='page' <%= "style='margin-top: 600px;'" unless ['redirect', 'view_page'].include?(controller.action_name) %> >
     <%= yield %>
   </div>
   
    <footer class='footer'>
      <small>
-       <a href='www.inuni.co'>inuni.co 2014 All rights reserved</em>
+       <a href='www.inuni.co'>inuni.co 2014 All rights reserved</a>
      </small>
    </footer>
   </div>
-</div>
+
 </body>
-<script type="text/javascript">
+<!--<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-80448-11']);
   _gaq.push(['_trackPageview']);
@@ -103,6 +102,6 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-</script>
+</script>-->
 
 </html>
