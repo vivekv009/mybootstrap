@@ -31,14 +31,14 @@ def display_thumbnail(article)
     if uri.include?('http://')
       path = File.join(Rails.root, 'public', uri.split('/')[3..-2].join('/'))
     else
-      path = File.join(Rails.root, 'public', uri.split('/')[0..-2].join('/'))
+      path = File.join(uri.split('/')[0..-2].join('/'))
     end
 
     picture = uri.split('/').last
-    filepath = File.join(path, "thumb_#{picture}")
+    filepath = File.join(path, "thumb_#{picture}").gsub("medium_", "")
 
-    if File.exists?(filepath) 
-      return image_tag(uri.gsub(picture, "thumb_#{picture}").gsub("medium_", ""), :alt => img.attributes['alt'], :class => 'thumb circular')
+    if filepath.include?('https')
+       return image_tag(uri.gsub(picture, "thumb_#{picture}").gsub("medium_", ""), :alt => img.attributes['alt'], :class => 'thumb circular')
     end
   end
   
