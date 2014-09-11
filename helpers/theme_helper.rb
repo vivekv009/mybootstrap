@@ -35,10 +35,10 @@ def display_thumbnail(article)
     end
 
     picture = uri.split('/').last
-    filepath = File.join(path, "thumb_#{picture}").gsub("medium_", "")
+    filepath = File.join(path, "#{picture}")
 
     if filepath.include?('https')
-       return image_tag(uri.gsub(picture, "thumb_#{picture}").gsub("medium_", ""), :alt => img.attributes['alt'], :class => 'thumb circular')
+       return image_tag(uri.gsub(picture, "#{picture}"), :alt => img.attributes['alt'], :class => 'thumb circular')
     end
   end
   
