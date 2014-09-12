@@ -113,6 +113,17 @@ def google_plus(article, description)
   HTML
 end
 
+#To relace heroku domain
+def replace_heroku_domain(permalink_url, custom_domain)
+  if permalink_url.include?("http://inuni-blog.herokuapp.com") 
+    path = permalink_url.split("http://inuni-blog.herokuapp.com")[1] 
+  elsif permalink_url.include?("http://localhost:3000")
+    path = permalink_url.split("http://localhost:3000")[1]
+  end      
+
+  path = custom_domain + path
+end  
+
 def get_title
   page = params[:page] ? "<br />page #{params[:page]}" : ""
   if controller.action_name == 'archives' or controller.action_name == 'search' or (controller.controller_name == 'tags' and controller.action_name == 'show')

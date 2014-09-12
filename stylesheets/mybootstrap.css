@@ -57,8 +57,8 @@ header div.meta small time.bold {
 }
 
 .navbar-li {
-  border-top: 1px solid #952121;
-  border-bottom: 3px solid #952121;
+  border-top: 1px solid #308BC5;
+  border-bottom: 3px solid #308BC5;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 80px;
@@ -66,6 +66,8 @@ header div.meta small time.bold {
   text-shadow: 0 2px 3px #707070;
   
 }
+
+
 
 .nav-container {
   padding: 20px 0;

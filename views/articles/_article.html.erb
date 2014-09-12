@@ -11,7 +11,8 @@
         article.body = s
     %>
     
-    <%= link_to_permalink(article, content_tag(:h4, article.title) + article.html(:body)) %>
+    <%= link_to_permalink(article, content_tag(:h4, article.title)) %>
+    <%= article.html(:body) %>
     <small><%= tag_links(article, "") %></small>
   </section>
   <hr class='col-lg-8 col-lg-offset-2' />
