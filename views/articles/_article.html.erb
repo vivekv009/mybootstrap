@@ -12,8 +12,9 @@
     %>
     
     <%= link_to_permalink(article, content_tag(:h4, article.title)) %>
-    <%= article.html(:body) %>
-    <small><%= tag_links(article, "") %></small>
+    <small><time>By <%= tagged_author(article) %> | <%= display_date(article.published_at) %></time></small><br/>
+    <%= article.html(:body) %><br/>
+    <small>Tags: <%= tag_links(article, "") %></small>
   </section>
   <hr class='col-lg-8 col-lg-offset-2' />
 </article>

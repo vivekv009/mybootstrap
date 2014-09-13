@@ -9,8 +9,13 @@ def view_on_twitter(status)
 end
 
 def tag_links(article, prefix="tags")
+  article.tags.shift if article.tags.any?
   "#{prefix}" + " " + article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
 end
+
+def tagged_author(article)
+  article.tags.first.display_name
+end  
 
 def render_similar_posts(article)
   unless article.tags.empty?

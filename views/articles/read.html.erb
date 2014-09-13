@@ -4,7 +4,7 @@
     <p>
       <small></small>
 <!--       <img src='/images/theme/icon_github.png' alt="Frédéric de Villamil" class="circular" /> -->
-      <small><time><%= display_date(@article.published_at) %></time></small>
+      <small><time>By <%= tagged_author(@article) %> | <%= display_date(@article.published_at) %></time></small>
     </p>
      <div class='row'>
         <div class='col-lg-12 text-right'>

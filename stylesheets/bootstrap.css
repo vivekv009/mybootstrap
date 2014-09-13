@@ -283,12 +283,13 @@ input,button,select,textarea {
 }
 
 a {
-    color: #404040;
+    color: #308BC5;
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:hover,a:focus {
-    color: #308BC5;
+    color: #404040;
     text-decoration: none;
 }
 
