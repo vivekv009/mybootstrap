@@ -67,6 +67,11 @@ header div.meta small time.bold {
   
 }
 
+.nav-tag {
+ font-transform: none;
+ font-size: 60%;
+}
+
 
 
 .nav-container {
