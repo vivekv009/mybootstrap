@@ -10,7 +10,7 @@ end
 
 def tag_links(article, prefix="tags")
   new_article = article.tags - [article.tags.first]
-  "#{prefix}" + " " + new_article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
+  "#{prefix}" + " " + new_article.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
 end
 
 def tagged_author(article)
