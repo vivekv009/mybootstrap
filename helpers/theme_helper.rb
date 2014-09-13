@@ -121,12 +121,12 @@ end
 #To relace heroku domain
 def replace_heroku_domain(permalink_url, custom_domain)
   if permalink_url.include?("http://inuni-blog.herokuapp.com") 
-    path = permalink_url.split("http://inuni-blog.herokuapp.com")[1] 
+    return custom_domain + permalink_url.split("http://inuni-blog.herokuapp.com")[1] 
   elsif permalink_url.include?("http://localhost:3000")
-    path = permalink_url.split("http://localhost:3000")[1]
+    return custom_domain + permalink_url.split("http://localhost:3000")[1]
+  else
+    return permalink_url
   end      
-
-  path = custom_domain + path
 end  
 
 def get_title
