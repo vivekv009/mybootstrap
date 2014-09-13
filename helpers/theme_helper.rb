@@ -9,12 +9,12 @@ def view_on_twitter(status)
 end
 
 def tag_links(article, prefix="tags")
-  new_article = article.tags - [article.tags.first]
+  new_article = article.tags - [article.tags.find{|t| t.display_name.split(' ').count == 2}]
   "#{prefix}" + " " + new_article.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.join(", ")
 end
 
 def tagged_author(article)
-  article.tags.find{|t| t.display_name.split(' ').count == 2}
+  article.tags.find{|t| t.display_name.split(' ').count == 2}.display_name
 end  
 
 def render_similar_posts(article)
