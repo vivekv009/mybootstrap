@@ -217,11 +217,11 @@ img.circular {
 
 .title-wrapper a,
 .title-wrapper small {
-  color: #000;
+  color: #fff;
 }
 
 .title-wrapper a:hover {
-  color: #eee;
+  color: #000;
 }
 
 .page-header .p-name {
