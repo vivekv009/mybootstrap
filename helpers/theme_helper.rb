@@ -9,7 +9,7 @@ def view_on_twitter(status)
 end
 
 def tag_links(article, prefix="tags")
-  new_article = article.dup
+  new_article = article
   new_article.tags.shift
   "#{prefix}" + " " + new_article.tags.map { |tag| link_to tag.display_name, "#{tag.permalink_url(nil, true)}/", :rel => "tag"}.sort.join(", ")
 end
