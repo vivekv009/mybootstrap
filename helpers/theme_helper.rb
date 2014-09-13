@@ -14,7 +14,7 @@ def tag_links(article, prefix="tags")
 end
 
 def tagged_author(article)
-  article.tags.first.display_name
+  article.tags.find{|t| t.split(' ').count == 2}
 end  
 
 def render_similar_posts(article)
