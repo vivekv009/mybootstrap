@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title><%= h(page_title.html_safe) if page_title %></title>
+  <title><%= h(page_title.html_safe.split('|').first) if page_title %></title>
   <%= meta_tag 'description', @description unless @description.blank? %>
   <%= show_meta_keyword %>
   <meta charset="utf-8" />
