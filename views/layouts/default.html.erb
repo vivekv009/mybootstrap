@@ -35,15 +35,7 @@
 </head>
 <body>
   <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=697269093692834&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-  
+
   <% bigpicture = (['redirect', 'view_page'].include?(controller.action_name)) ? "" : "_bigpicture" %>
   <% unless ['redirect', 'view_page'].include?(controller.action_name)  %>
   <div class='img-wrapper'>
@@ -96,7 +88,6 @@
   </div>
   
    <footer class='footer'>
-     <div class="fb-facepile" data-app-id="697269093692834" data-href="https://www.facebook.com/FacebookDevelopers" data-action="like, share" data-width="350" data-height="350" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
      <small>
        <%= link_to('inuni.co 2014 All rights reserved', 'http://www.inuni.co') %>
      </small>
