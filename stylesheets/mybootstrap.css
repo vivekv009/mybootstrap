@@ -254,3 +254,15 @@ p.p-name.entry-title.e-content.entry-content.article a {
  text-decoration: underline; 
 }
 
+/* Media queries */
+@media only screen and (max-width: 1200px) {
+    .facePile {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 1450px) {
+    .nav-container {
+        display: none !important;
+    }
+}
