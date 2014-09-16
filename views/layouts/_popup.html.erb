@@ -1,0 +1,21 @@
+<script type="text/javascript" src="https://www.dropbox.com/s/qf1rc6v4ufykg9j/jquery.js?dl=1"></script>
+<script type="text/javascript" src="https://www.dropbox.com/s/2ztkllm3o980vsv/modal.js?dl=1"></script>
+  <script type="text/javascript">
+    function notyet() {
+      $('#notYet').modal('show')
+        return false;
+    }
+  </script>
+
+  <div id="notYet" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <p><%= link_to image_tag('/images/theme/favicon.ico'), root_url, :class => 'centered' %><h4>Coming soon</h4></p>
+               
+                  <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" aria-hidden="true">OK</button>
+                  <p> &nbsp </p>
+                 </div>
+            </div>
+        </div>         
+  </div>  

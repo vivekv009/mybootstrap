@@ -8,6 +8,7 @@
   <script type="text/javascript" src="//use.typekit.net/kvg7shx.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <%= render :partial => '/layout/popup' %>
   <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.css", "/stylesheets/theme/mybootstrap.css", "user-styles.css", :media => 'all' %>
   <%= meta_tag 'robots', 'noindex, follow' if stop_index_robots?(this_blog) %>
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%= url_for :controller => '/xml', :action => 'rsd' %>" />
@@ -62,9 +63,9 @@
     </div>
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class='nav navbar-nav pull-left nav-container'>
-            <li class='visible-lg'><%= link_to('STUDENT ESSENTIALS', root_url, :class => 'navbar-li') %></li>
-            <li class='visible-lg'><%= link_to('GRADUATE JOBS & INTERNSHIPS', root_url, :class => 'navbar-li') %></li>
-            <li class='visible-lg'><%= link_to('IMMIGRATION & BRITAIN', root_url, :class => 'navbar-li') %></li>
+            <li class='visible-lg'><%= link_to('STUDENT ESSENTIALS', '#', :data => {:toggle => 'modal', :target => "#notYet"} %></li>
+            <li class='visible-lg'><%= link_to('GRADUATE JOBS & INTERNSHIPS', '#', :data => {:toggle => 'modal', :target => "#notYet"} %></li>
+            <li class='visible-lg'><%= link_to('IMMIGRATION & BRITAIN', '#', :data => {:toggle => 'modal', :target => "#notYet"} %></li>
           </ul>
           <ul class='nav navbar-nav pull-right'>
             <li class='hidden-phone'><%= link_to(t(".archives"), {:controller => 'articles', :action => 'archives'}) %></li>
