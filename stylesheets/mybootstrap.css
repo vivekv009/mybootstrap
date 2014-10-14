@@ -266,3 +266,10 @@ p.p-name.entry-title.e-content.entry-content.article a {
         display: none !important;
     }
 }
+
+.diwali {
+    background: url('/images/theme/diwali.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    font-family: "Lobster";
+} 
