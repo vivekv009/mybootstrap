@@ -57,8 +57,9 @@
   <% end %>
   <nav class='navbar navbar-default' role='navigation' style='padding: 0 20px'>
     <div class="navbar-header navbar-brand">
-      <%= link_to(this_blog.blog_name.html_safe, root_url) %><%= link_to image_tag('/images/theme/info.jpg'), '#', :data => {:toggle => 'modal', :target => "#diwali"} %><br/>
+      <%= link_to(this_blog.blog_name.html_safe, root_url) %><br/>
       <div class="nav-tag"><i>Built by a vibrant student community</i></div>
+      <%= link_to image_tag('/images/theme/info.jpg'), '#', :data => {:toggle => 'modal', :target => "#diwali"} %>
       
     </div>
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
