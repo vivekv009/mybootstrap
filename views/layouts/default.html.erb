@@ -9,27 +9,8 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <%= render :partial => '/layouts/popup' %>
-  <script>
-      var cb = function() {
-        var css1 = document.createElement('link'); css1.rel = 'stylesheet';
-        css1.href = '/stylesheets/theme/bootstrap.css';
-        var head1 = document.getElementsByTagName('head')[0]; head1.parentNode.insertBefore(css1, head1);
 
-        var css2 = document.createElement('link'); css2.rel = 'stylesheet';
-        css2.href = '/stylesheets/theme/mybootstrap.css';
-        var head2 = document.getElementsByTagName('head')[0]; head2.parentNode.insertBefore(css2, head2);
-
-        var css3 = document.createElement('link'); css3.rel = 'stylesheet';
-        css3.href = 'user-styles.css';
-        var head3 = document.getElementsByTagName('head')[0]; head3.parentNode.insertBefore(css3, head3);
-      };
-      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-          webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(cb);
-      else window.addEventListener('load', cb);
-  </script>
-
-  <%#= stylesheet_link_tag "/stylesheets/theme/bootstrap.css", "/stylesheets/theme/mybootstrap.css", "user-styles.css", :media => 'all' %>
+  <%= stylesheet_link_tag "/stylesheets/theme/bootstrap.css", "/stylesheets/theme/mybootstrap.css", "user-styles.css", :media => 'all' %>
   <%= meta_tag 'robots', 'noindex, follow' if stop_index_robots?(this_blog) %>
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<%= url_for :controller => '/xml', :action => 'rsd' %>" />
   <%- if feed_atom %>
