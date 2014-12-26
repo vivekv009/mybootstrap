@@ -11,7 +11,7 @@
         article.body = s
     %>
     
-    <div style="padding-left: 150px;"><%= link_to_permalink(article, content_tag(:h4, article.title)) %></div>
+    <%= link_to_permalink(article, content_tag(:h4, article.title)) %>
     <small><time>By <%= tagged_author(article) %> | <%= display_date(article.published_at) %></time></small><br/>
     <%= article.html(:body) %><br/>
     <small>Tags: <%= tag_links(article, "") %></small>
